@@ -13,7 +13,7 @@ server.use(express.static("static"));
 
 server.use(parser.json());
 
-var PORT = process.env.port || 8080;
+var PORT = process.env.PORT || 8080;
 
 var io = socket(server.listen(PORT));
 
