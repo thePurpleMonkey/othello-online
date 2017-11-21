@@ -1,0 +1,26 @@
+{
+  "name": "othello-online",
+  "version": "1.0.0",
+  "description": "Online multiplayer platform to play the game of Othello.",
+  "main": "server.js",
+  "dependencies": {
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thePurpleMonkey/othello-online.git"
+  },
+  "author": "Michael Humphrey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thePurpleMonkey/othello-online/issues"
+  },
+  "homepage": "https://github.com/thePurpleMonkey/othello-online#readme"
+}
