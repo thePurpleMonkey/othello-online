@@ -13,7 +13,9 @@ server.use(express.static("static"));
 
 server.use(parser.json());
 
-var io = socket(server.listen(8080));
+var PORT = process.env.port || 8080;
+
+var io = socket(server.listen(PORT));
 
 var waitingForMatch = null;
 
@@ -255,3 +257,5 @@ server.get('/ai', function(req, res) {
 	res.status(501);
 	res.end();
 });
+
+console.log("Server started on port " + PORT);
