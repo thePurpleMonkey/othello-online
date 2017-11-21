@@ -13,6 +13,12 @@ $(".big-button").bind("click", function(event) {
 	socket.emit("waitingForOpponent", multiplayer);
 });
 
+$(".play-again").bind("click", function() {
+	console.log("Restarting game");
+	socket.disconnect();
+	socket.open();
+});
+
 socket.on("connect", function() {
 	console.log("Connected!");
 	$("body > div").addClass("hidden");
@@ -73,6 +79,30 @@ socket.on("clientDisconnected", function() {
 	console.log("Client disconnected");
 	socket.disconnect();
 	socket.open();
+});
+
+socket.on("gameOver", function(newState) {
+	state.turn = null; // Disable interactivity
+
+	// Calculate score
+	var blackScore = 0;
+	var whiteScore = 0;
+	for (var i = 0; i < 8; i++) {
+		for (var j = 0; j < 8; j++) {
+			if (newState.board[i][j] === 'w') {
+				whiteScore++;
+			} else if (newState.board[i][j] === 'b') {
+				blackScore++;
+			}
+		}
+	}
+
+	if (((newState.color === 'b') && (blackScore > whiteScore)) || 
+	    ((newState.color === 'w') && (whiteScore > blackScore))) {
+			$("#won").removeClass("hidden");
+	} else {
+			$("#lost").removeClass("hidden");
+	}
 });
 
 var context = $("#game-canvas").get(0).getContext("2d");

@@ -215,8 +215,21 @@ io.on("connection", function(clientSocket) {
 				clientSocket.opponent.emit("newState", clientSocket.opponent.state);
 			} else if (legalMovesRemain(clientSocket.state)) {
 				// Opponent cannot move, skip their turn
+				console.log("Player '" + clientSocket.opponent.state.color + "' has no legal moves remaining. Skipping turn");
+				
+				// Skip opponent's turn, reset turn back to current player
+				clientSocket.state.turn = clientSocket.state.turn === 'w' ? 'b' : 'w';
+				clientSocket.opponent.state.turn = clientSocket.state.turn;
+
+				// Emit new state
+				clientSocket.emit("newState", clientSocket.state);
+				clientSocket.opponent.emit("newState", clientSocket.opponent.state);
+
 			} else {
 				// Nobody can move, game over.
+				console.log("No more remaining moves. Game over.");
+				clientSocket.emit("gameOver", clientSocket.state);
+				clientSocket.opponent.emit("gameOver", clientSocket.opponent.state);
 			}
 
 		} else {
