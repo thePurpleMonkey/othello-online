@@ -1,0 +1,83 @@
+/********************************/
+/*            Global            */
+/********************************/
+
+.hidden {
+	display: none !important;
+}
+
+
+/********************************/
+/*         Landing page         */
+/********************************/
+
+.big-button {
+	border: 1px solid black;
+
+	/* Spacing */
+	width: 100px;
+	padding: 15px;
+	margin: 10px auto;
+
+	/* Text */
+	text-align: center;
+	font-weight: bold;
+
+	/* Color */
+	color: #000;
+	background-color: #77F;
+}
+.big-button:hover {
+	background-color: #33F;
+}
+
+#landing > a {
+	text-decoration: none;
+}
+
+#landing {
+	text-align: center;
+}
+
+
+/********************************/
+/*       Finding opponent       */
+/********************************/
+
+#finding-opponent {
+	text-align: center;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+
+/********************************/
+/*             Game             */
+/********************************/
+
+#game-div {
+	display: flex;
+}
+
+#side-bar {
+	margin: 0 10px;
+}
+
+#turn {
+	font-size: 2em;
+	color: #F0F;
+}
+
+
+/********************************/
+/*            Error             */
+/********************************/
+
+#error > h1 {
+	color: #F00;
+}
+
+#errorMsg {
+	color: #F00;
+	font-weight: bold;
+}

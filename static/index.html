@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Othello Online</title>
+		<link rel="stylesheet" href="main.css">
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<h1>Othello Online</h1>
+		<hr>
+		<div id="landing">
+			<p id="landing-text">Select a play mode:</p>
+			<a href="#"><div id="solo-button" class="big-button">Solo</div></a>
+			<a href="#"><div id="multiplayer-button" class="big-button">Multiplayer</div></a>
+		</div>
+
+		<div id="finding-opponent" class="hidden">
+			<p>Finding opponent...<br>Please be patient.</p>
+			<img src="finding-opponent.gif">
+		</div>
+
+		<div id="game-div" class="hidden">
+			<canvas id="game-canvas" width="544" height="544"></canvas>
+			<div id="side-bar">
+				<p>You are playing as: <span id="player"></span></p>
+				<table>
+					<tr>
+						<th>Player</th>
+						<th>Score</th>
+					</tr>
+					<tr>
+						<td>Light</td>
+						<td><span id="white-score">0</span></td>
+					</tr>
+					<tr>
+						<td>Dark</td>
+						<td><span id="black-score">0</span></td>
+					</tr>
+				</table>
+				<div id="turn">Your turn!</div>
+				<div id="waitingForOpponent">Waiting for opponent...</div>
+				<div id="errorMsg"></div>
+			</div>
+		</div>
+
+		<div id="error" class="hidden">
+			<h1>Error!</h1>
+			<p>Uh oh! Looks like you lost connection to the server. If we can fix it, we'll set you right back up where you left off.</p>
+		</div>
+
+		<!-- Scripts -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
