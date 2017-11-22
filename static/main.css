@@ -17,7 +17,7 @@
 	/* Spacing */
 	width: 100px;
 	padding: 15px;
-	margin: 10px auto;
+	margin: 10px;
 
 	/* Text */
 	text-align: center;
@@ -31,12 +31,20 @@
 	background-color: #33F;
 }
 
-#landing > a {
+a {
 	text-decoration: none;
 }
 
-#landing {
+.button-box {
+	display: inline-block;
+}
+
+#main {
 	text-align: center;
+}
+
+#difficult-button {
+	text-decoration: line-through;
 }
 
 
@@ -61,11 +69,16 @@
 
 #side-bar {
 	margin: 0 10px;
+	text-align: left;
 }
 
 #turn {
 	font-size: 2em;
 	color: #F0F;
+}
+
+#score-table {
+	margin: 1em 0;
 }
 
 

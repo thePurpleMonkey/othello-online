@@ -152,50 +152,37 @@ function isLegalMove(state, move, silent = false) {
 io.on("connection", function(clientSocket) {
 	console.log("New connection");
 
-	clientSocket.on("waitingForOpponent", function(multiplayer) {
-		if (multiplayer) {
-			// Multiplayer
-			if (!waitingForMatch) {
-				// No match available
-				waitingForMatch = clientSocket;
-				console.log("Added client to wait queue");
-			} else {
-				console.log("Opponents matched!");
-
-				// Make match
-				clientSocket.opponent = waitingForMatch;
-				var otherSocket = waitingForMatch;
-				waitingForMatch = null;
-				otherSocket.opponent = clientSocket;
-
-				var state = {
-					board: newGameState(),
-					color: 'w',
-					turn:  'b',
-					multiplayer: true
-				};
-				clientSocket.state = state;
-				clientSocket.emit("newState", state);
-
-				state = {
-					board: state.board,
-					color: 'b',
-					turn: 'b',
-					multiplayer: true
-				};
-				otherSocket.state = state
-				otherSocket.emit("newState", state);
-			}
+	clientSocket.on("waitingForOpponent", function() {
+		if (!waitingForMatch) {
+			// No match available
+			waitingForMatch = clientSocket;
+			console.log("Added client to wait queue");
 		} else {
-			// Single player
+			console.log("Opponents matched!");
+
+			// Make match
+			clientSocket.opponent = waitingForMatch;
+			var otherSocket = waitingForMatch;
+			waitingForMatch = null;
+			otherSocket.opponent = clientSocket;
+
 			var state = {
 				board: newGameState(),
-				color: ['b', 'w'][Math.round(Math.random())],
+				color: 'w',
 				turn:  'b',
-				multiplayer: false
+				multiplayer: true
 			};
 			clientSocket.state = state;
 			clientSocket.emit("newState", state);
+
+			state = {
+				board: state.board,
+				color: 'b',
+				turn: 'b',
+				multiplayer: true
+			};
+			otherSocket.state = state
+			otherSocket.emit("newState", state);
 		}
 	});
 
@@ -251,11 +238,133 @@ io.on("connection", function(clientSocket) {
 	});
 });
 
-server.get('/ai', function(req, res) {
+/****************************************************/
+/*                 Single player AI                 */
+/****************************************************/
+
+server.post('/ai/random', function(req, res) {
 	var state = req.body;
 
-	res.status(501);
-	res.end();
+	// Derive the state of the game from the AI's point of view
+	var aiState = JSON.parse(JSON.stringify(state)); // Copy state
+	aiState.color = state.color === 'w' ? 'b' : 'w';
+
+	var possibleMoves = [];
+
+	for (var i = 0; i < 8; i++) {
+		for (var j = 0; j < 8; j++) {
+			if (aiState.board[i][j] == ' ') {
+				if (isLegalMove(aiState, {x: i, y: j}, true)) {
+					var temp = JSON.parse(JSON.stringify(aiState));
+					makeMove(temp, {x: i, y: j});
+					//console.log(temp);
+					possibleMoves.push(temp);
+				}
+			}
+		}
+	}
+
+	if (possibleMoves.length > 0) {
+		var nextState = possibleMoves[Math.floor(Math.random()*possibleMoves.length)];
+	
+		// Copy the modified board to the user's state
+		state.board = nextState.board;
+	
+		res.status(200);
+		res.type("application/json");
+		res.end(JSON.stringify(state));
+	} else {
+		res.status(400);
+		res.type("application/json");
+		res.end(JSON.stringify({error: "No legal moves remaining"}));
+	}
+});
+
+server.post('/ai/greedy', function(req, res) {
+	var state = req.body;
+
+	// Derive the state of the game from the AI's point of view
+	var aiState = JSON.parse(JSON.stringify(state)); // Copy state
+	aiState.color = state.color === 'w' ? 'b' : 'w';
+
+	var possibleMoves = [];
+
+	for (var i = 0; i < 8; i++) {
+		for (var j = 0; j < 8; j++) {
+			if (aiState.board[i][j] === ' ') {
+				if (isLegalMove(aiState, {x: i, y: j}, true)) {
+					var temp = JSON.parse(JSON.stringify(aiState));
+					makeMove(temp, {x: i, y: j});
+					var score = 0;
+					for (var k = 0; k < 8; k++) {
+						for (var l = 0; l < 8; l++) {
+							if (temp.board[k][l] === aiState.color) {
+								score++;
+							}
+						}
+					}
+					possibleMoves.push({state: temp, score: score});
+				}
+			}
+		}
+	}
+
+	// console.log("Number of legal moves: " + possibleMoves.length);
+	// console.log("possibleMoves[0] = " + JSON.stringify(possibleMoves[0]));
+	if (possibleMoves.length > 0) {
+		var nextState = possibleMoves.sort((a, b) => {
+			var diff = a.score - b.score;
+			return diff/(Math.abs(diff)||1);
+		}).pop().state;
+		//console.log(possibleMoves);
+
+		// Copy the modified board to the user's state
+		state.board = nextState.board;
+	
+		res.status(200);
+		res.type("application/json");
+		res.end(JSON.stringify(state));
+	} else {
+		res.status(400);
+		res.type("application/json");
+		res.end(JSON.stringify({error: "No legal moves remaining"}));
+	}
+});
+
+server.post('/player/makeMove', function(req, res) {
+	var data = req.body;
+
+	if (!("state" in data && "move" in data)) {
+		res.status(400);
+		res.type("application/json");
+		res.end(JSON.stringify({error: "Invalid request"}));
+		
+		return;
+	}
+
+	var state = data.state;
+	var move = data.move;
+
+	if (isValidMove(state, move) && isLegalMove(state, move)) {
+		makeMove(state, move);
+
+		// Send response
+		res.status(200);
+		res.type("application/json");
+		res.end(JSON.stringify(state));
+	} else {
+		res.status(400);
+		res.type("application/json");
+		res.end(JSON.stringify({error: "Illegal move: " + state.error}));
+	}
+});
+
+server.post('/player/legalMovesRemain', function(req, res) {
+	// Send response
+	res.status(200);
+	res.type("application/json");
+	res.end(JSON.stringify({result: legalMovesRemain(req.body)}));
+
 });
 
 console.log("Server started on port " + PORT);
