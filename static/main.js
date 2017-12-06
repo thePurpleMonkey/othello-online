@@ -72,12 +72,13 @@ $(".difficulty-button").bind("click", function() {
 
 $(".play-again").bind("click", function() {
 	console.log("Restarting game");
-	if (socket) {
-		socket.disconnect();
-	}
+	socket.emit("restart");
 
-	$("#main > div").addClass("hidden");
-	$("#landing").removeClass("hidden");
+	//$("#main > div").addClass("hidden");
+	//$("#landing").removeClass("hidden");
+	$("#won").addClass("hidden");
+	$("#lost").addClass("hidden");
+	$("#tied").addClass("hidden");
 });
 
 function createSocket() {
@@ -93,6 +94,9 @@ function createSocket() {
 		$("#main > div").addClass("hidden");
 		// $("#error").removeClass("hidden");
 		$("#landing").removeClass("hidden");
+		$("#won").addClass("hidden");
+		$("#lost").addClass("hidden");
+		$("#tied").addClass("hidden");
 		alert("Uh oh! You or your opponent lost connection to the server. Your game had to be aborted. Sorry :(")
 		console.log("Disconnected!");
 	});
@@ -127,6 +131,10 @@ function createSocket() {
 		} else {
 			$("#player").text("dark");
 		}
+
+		$("#won").addClass("hidden");
+		$("#lost").addClass("hidden");
+		$("#tied").addClass("hidden");
 	
 		updateScore(state.board);
 	
@@ -136,12 +144,19 @@ function createSocket() {
 	s.on("clientDisconnected", function() {
 		console.log("Client disconnected");
 		s.disconnect();
-		// $("#main > div").addClass("hidden");
+		//$("#main > div").addClass("hidden");
 		// $("#landing").removeClass("hidden");
 	});
 	
 	s.on("gameOver", function(newState) {
-		state.turn = null; // Disable interactivity
+		console.log("Received gameOver event.");
+		state = newState;
+		state.turn = null;	// Disable interactivity
+		displayBoard();		// Display the final board
+		updateScore(state.board);
+
+		$("#waitingForOpponent").addClass("hidden");
+		$("#turn").addClass("hidden");
 	
 		// Calculate score
 		var blackScore = 0;
@@ -156,6 +171,9 @@ function createSocket() {
 			}
 		}
 		
+		console.log("Black Score: " + blackScore);
+		console.log("White Score: " + whiteScore);
+
 		if (whiteScore === blackScore) {
 			$("#tied").removeClass("hidden");
 		} else if (((newState.color === 'b') && (blackScore > whiteScore)) || 

@@ -186,6 +186,41 @@ io.on("connection", function(clientSocket) {
 		}
 	});
 
+	clientSocket.on('debug', function() {
+		clientSocket.state.board = [['b', 'b', 'w', 'w', 'b', 'b', 'w', 'w'],
+	                          ['b', 'b', 'w', 'w', 'b', 'b', 'w', 'w'],
+	                          ['b', 'b', 'w', 'w', 'b', 'b', 'w', 'w'],
+	                          ['b', 'b', 'w', 'w', 'b', 'b', 'w', 'w'],
+	                          ['b', 'b', 'w', 'w', 'b', 'b', 'w', 'w'],
+	                          ['b', 'b', 'w', 'w', 'b', 'b', 'w', 'w'],
+	                          ['b', 'b', 'w', 'w', 'b', 'b', 'w', 'w'],
+							  [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']];
+		
+		clientSocket.opponent.state.board = clientSocket.state.board;
+		clientSocket.emit("newState", clientSocket.state);
+		clientSocket.opponent.emit("newState", clientSocket.opponent.state);
+	});
+
+	clientSocket.on("restart", function() {
+			var whiteState = {
+				board: newGameState(),
+				color: 'w',
+				turn:  'b',
+				multiplayer: true
+			};
+			clientSocket.state = whiteState;
+			clientSocket.emit("newState", whiteState);
+
+			var blackState = {
+				board: whiteState.board,
+				color: 'b',
+				turn: 'b',
+				multiplayer: true
+			};
+			clientSocket.opponent.state = blackState
+			clientSocket.opponent.emit("newState", blackState);
+	});
+
 	clientSocket.on("move", function(move) {
 		if (isValidMove(clientSocket.state, move) && isLegalMove(clientSocket.state, move)) {
 			// Legal move
