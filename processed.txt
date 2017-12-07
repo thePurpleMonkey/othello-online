@@ -1,0 +1,830 @@
+Statistical profiling result from isolate-0x27a84f0-v8.log, (318526 ticks, 117308 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+  16383    5.1%          /usr/bin/node
+    778    0.2%          [vdso]
+    514    0.2%          /lib/x86_64-linux-gnu/libc-2.19.so
+     75    0.0%          /lib/x86_64-linux-gnu/libpthread-2.19.so
+      9    0.0%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+  49038   15.4%   16.3%  LazyCompile: *isLegalMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:119:21
+  34166   10.7%   11.4%  Builtin: StringEqual
+  26277    8.2%    8.7%  LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  13766    4.3%    4.6%  LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   9330    2.9%    3.1%  LazyCompile: *makeMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:64:18
+   1231    0.4%    0.4%  LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+   1158    0.4%    0.4%  Stub: CEntryStub {1}
+   1100    0.3%    0.4%  Builtin: FastNewClosure
+    889    0.3%    0.3%  Builtin: ArrayForEach
+    659    0.2%    0.2%  Builtin: GrowFastSmiOrObjectElements
+    543    0.2%    0.2%  Builtin: CallFunction_ReceiverIsAny
+    535    0.2%    0.2%  Builtin: MathMax
+    406    0.1%    0.1%  Builtin: ArgumentsAdaptorTrampoline
+    397    0.1%    0.1%  Builtin: CompileLazy
+    224    0.1%    0.1%  Stub: RecordWriteStub {3}
+    218    0.1%    0.1%  Builtin: Call_ReceiverIsAny
+    127    0.0%    0.0%  Builtin: MathMin
+     68    0.0%    0.0%  LazyCompile: *maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+     37    0.0%    0.0%  Builtin: AllocateInNewSpace
+     31    0.0%    0.0%  Builtin: ToObject
+     26    0.0%    0.0%  Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     19    0.0%    0.0%  Stub: CEntryStub
+     11    0.0%    0.0%  LazyCompile: *getScoreOf /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:560:20
+     10    0.0%    0.0%  Function: ~isLegalMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:119:21
+      9    0.0%    0.0%  LazyCompile: *isTerminal /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:498:20
+      9    0.0%    0.0%  Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+      9    0.0%    0.0%  Function: ~makeMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:64:18
+      6    0.0%    0.0%  LazyCompile: *minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+      6    0.0%    0.0%  Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+      5    0.0%    0.0%  Builtin: CallFunction_ReceiverIsNullOrUndefined
+      4    0.0%    0.0%  Stub: CallICStub
+      4    0.0%    0.0%  Function: ~successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+      3    0.0%    0.0%  Stub: StringAddStub
+      3    0.0%    0.0%  Function: ~minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+      3    0.0%    0.0%  Builtin: InterpreterEntryTrampoline
+      2    0.0%    0.0%  StoreIC: A store IC from the snapshot
+      2    0.0%    0.0%  KeyedLoadIC: A keyed load IC from the snapshot
+      2    0.0%    0.0%  Function: ~isTerminal /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:498:20
+      2    0.0%    0.0%  Function: ~copyState /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:457:19
+      2    0.0%    0.0%  Function: ~Module._findPath module.js:174:28
+      2    0.0%    0.0%  Builtin: StringCharCodeAt
+      2    0.0%    0.0%  Builtin: HandleApiCall
+      1    0.0%    0.0%  Stub: RecordWriteStub {2}
+      1    0.0%    0.0%  Stub: RecordWriteStub {1}
+      1    0.0%    0.0%  Stub: RecordWriteStub
+      1    0.0%    0.0%  Stub: GetPropertyStub
+      1    0.0%    0.0%  KeyedStoreIC: A keyed store IC from the snapshot
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot
+      1    0.0%    0.0%  Function: ~stat module.js:47:14
+      1    0.0%    0.0%  Function: ~set native collection.js:149:4
+      1    0.0%    0.0%  Function: ~resolve path.js:1171:28
+      1    0.0%    0.0%  Function: ~realpathSync fs.js:1571:40
+      1    0.0%    0.0%  Function: ~readPackage module.js:105:21
+      1    0.0%    0.0%  Function: ~parserOnHeadersComplete _http_common.js:63:33
+      1    0.0%    0.0%  Function: ~onwriteDrain _stream_writable.js:461:22
+      1    0.0%    0.0%  Function: ~makeRequireFunction internal/module.js:5:29
+      1    0.0%    0.0%  Function: ~getScoreOf /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:560:20
+      1    0.0%    0.0%  Function: ~fs.readFileSync fs.js:548:27
+      1    0.0%    0.0%  Function: ~dirname path.js:1363:28
+      1    0.0%    0.0%  Function: ~createUnsafeBuffer buffer.js:86:28
+      1    0.0%    0.0%  Function: ~createTimersList timers.js:187:26
+      1    0.0%    0.0%  Function: ~clear internal/process/next_tick.js:42:8
+      1    0.0%    0.0%  Function: ~callSiteLocation /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/node_modules/depd/index.js:249:27
+      1    0.0%    0.0%  Function: ~assertSize buffer.js:210:20
+      1    0.0%    0.0%  Function: ~args internal/util/types.js:11:10
+      1    0.0%    0.0%  Function: ~afterWrite net.js:855:20
+      1    0.0%    0.0%  Function: ~_makeLong path.js:1358:32
+      1    0.0%    0.0%  Function: ~Writable.write _stream_writable.js:264:36
+      1    0.0%    0.0%  Function: ~TickObject internal/process/next_tick.js:234:16
+      1    0.0%    0.0%  Function: ~StackPush native array.js:80:19
+      1    0.0%    0.0%  Function: ~Module._resolveFilename module.js:506:35
+      1    0.0%    0.0%  Function: ~Module._extensions..js module.js:644:37
+      1    0.0%    0.0%  Function: ~MapFindEntry native collection.js:39:22
+      1    0.0%    0.0%  Function: ~IncomingMessage _http_incoming.js:38:25
+      1    0.0%    0.0%  Function: ~GetExistingHash native collection.js:69:25
+      1    0.0%    0.0%  Builtin: StringPrototypeSlice
+      1    0.0%    0.0%  Builtin: StringPrototypeIndexOf
+      1    0.0%    0.0%  Builtin: StoreICStrict_Uninitialized
+      1    0.0%    0.0%  Builtin: ObjectCreate
+      1    0.0%    0.0%  Builtin: MapLookupHashIndex
+      1    0.0%    0.0%  Builtin: LoadIC_Uninitialized
+      1    0.0%    0.0%  Builtin: LoadIC_Noninlined
+      1    0.0%    0.0%  Builtin: LoadICProtoArray
+
+ [C++]:
+   ticks  total  nonlib   name
+   6309    2.0%    2.1%  v8::internal::PagedSpace::Available()
+   4821    1.5%    1.6%  v8::internal::Heap::Scavenge()
+   3292    1.0%    1.1%  v8::internal::Heap::AllocateRaw(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+   2619    0.8%    0.9%  v8::internal::ScavengeWeakObjectRetainer::RetainAs(v8::internal::Object*)
+   2617    0.8%    0.9%  v8::internal::Heap::AllocateFixedArrayWithFiller(int, v8::internal::PretenureFlag, v8::internal::Object*)
+   2590    0.8%    0.9%  v8::internal::Factory::NewJSArrayStorage(v8::internal::Handle<v8::internal::JSArray>, int, int, v8::internal::ArrayStorageAllocationMode)
+   2485    0.8%    0.8%  v8::internal::Heap::AllocateJSObjectFromMap(v8::internal::Map*, v8::internal::PretenureFlag, v8::internal::AllocationSite*)
+   1996    0.6%    0.7%  v8::internal::Factory::NewJSArray(v8::internal::ElementsKind, int, int, v8::internal::ArrayStorageAllocationMode, v8::internal::PretenureFlag)
+   1489    0.5%    0.5%  v8::internal::Heap::InitializeJSObjectBody(v8::internal::JSObject*, v8::internal::Map*, int)
+   1408    0.4%    0.5%  v8::internal::Factory::NewUninitializedFixedArray(int)
+   1364    0.4%    0.5%  v8::internal::Object* v8::internal::VisitWeakList<v8::internal::JSFunction>(v8::internal::Heap*, v8::internal::Object*, v8::internal::WeakObjectRetainer*)
+   1155    0.4%    0.4%  v8::internal::Bitmap::Clear()
+   1107    0.3%    0.4%  v8::internal::Factory::NewJSObjectFromMap(v8::internal::Handle<v8::internal::Map>, v8::internal::PretenureFlag, v8::internal::Handle<v8::internal::AllocationSite>)
+    771    0.2%    0.3%  v8::internal::JSObject::GetElementsAccessor()
+    627    0.2%    0.2%  v8::internal::Scavenger::ScavengeObject(v8::internal::HeapObject**, v8::internal::HeapObject*)
+    588    0.2%    0.2%  v8::internal::Heap::AllocateRawFixedArray(int, v8::internal::PretenureFlag)
+    544    0.2%    0.2%  v8::internal::Builtin_ArraySlice(int, v8::internal::Object**, v8::internal::Isolate*)
+    529    0.2%    0.2%  v8::internal::Isolate::get_initial_js_array_map(v8::internal::ElementsKind)
+    435    0.1%    0.1%  v8::internal::Heap::RecordWrite(v8::internal::Object*, int, v8::internal::Object*)
+    369    0.1%    0.1%  v8::internal::GCTracer::Start(v8::internal::GarbageCollector, v8::internal::GarbageCollectionReason, char const*)
+    332    0.1%    0.1%  v8::internal::Scavenger::Process()
+    322    0.1%    0.1%  v8::internal::SemiSpace::FixPagesFlags(long, long)
+    310    0.1%    0.1%  v8::internal::NewSpace::UpdateAllocationInfo()
+    198    0.1%    0.1%  __GI___pthread_mutex_lock
+    193    0.1%    0.1%  v8::internal::RootScavengeVisitor::VisitRootPointer(v8::internal::Root, v8::internal::Object**)
+    176    0.1%    0.1%  mmap
+    143    0.0%    0.0%  v8::internal::ArrayBufferTracker::FreeDeadInNewSpace(v8::internal::Heap*)
+    142    0.0%    0.0%  v8::internal::RootScavengeVisitor::VisitRootPointers(v8::internal::Root, v8::internal::Object**, v8::internal::Object**)
+    138    0.0%    0.0%  v8::internal::Heap::CopyBlock(unsigned char*, unsigned char*, int)
+    125    0.0%    0.0%  v8::internal::Runtime_AllocateInNewSpace(int, v8::internal::Object**, v8::internal::Isolate*)
+    121    0.0%    0.0%  v8::internal::Heap::GarbageCollectionPrologue()
+    105    0.0%    0.0%  v8::internal::StackFrame::ComputeType(v8::internal::StackFrameIteratorBase const*, v8::internal::StackFrame::State*)
+    104    0.0%    0.0%  v8::internal::FixStaleLeftTrimmedHandlesVisitor::VisitRootPointers(v8::internal::Root, v8::internal::Object**, v8::internal::Object**)
+     95    0.0%    0.0%  v8::internal::InnerPointerToCodeCache::GetCacheEntry(unsigned char*)
+     95    0.0%    0.0%  __printf_fp
+     93    0.0%    0.0%  node::NodePlatform::IdleTasksEnabled(v8::Isolate*)
+     88    0.0%    0.0%  v8::internal::NewSpace::EnsureAllocation(int, v8::internal::AllocationAlignment)
+     87    0.0%    0.0%  v8::internal::IdleScavengeObserver::Step(int, unsigned char*, unsigned long)
+     86    0.0%    0.0%  v8::internal::V8::GetCurrentPlatform()
+     86    0.0%    0.0%  _IO_vfprintf
+     82    0.0%    0.0%  v8::internal::HeapObject::SizeFromMap(v8::internal::Map*) const
+     80    0.0%    0.0%  v8::internal::SerializerDeserializer::Iterate(v8::internal::Isolate*, v8::internal::RootVisitor*)
+     78    0.0%    0.0%  v8::internal::Heap::OnMoveEvent(v8::internal::HeapObject*, v8::internal::HeapObject*, int)
+     71    0.0%    0.0%  v8::internal::CopiedRangesList::Insert(v8::internal::HeapObject*, int)
+     68    0.0%    0.0%  v8::internal::NewSpace::UpdateInlineAllocationLimit(int)
+     68    0.0%    0.0%  v8::internal::MemoryChunk::Initialize(v8::internal::Heap*, unsigned char*, unsigned long, unsigned char*, unsigned char*, v8::internal::Executability, v8::internal::Space*, v8::base::VirtualMemory*)
+     65    0.0%    0.0%  void v8::internal::Heap::UpdateAllocationSite<(v8::internal::Heap::UpdateAllocationSiteMode)1>(v8::internal::Map*, v8::internal::HeapObject*, v8::base::PointerTemplateHashMapImpl<v8::base::DefaultAllocationPolicy>*)
+     65    0.0%    0.0%  v8::internal::Heap::AllocateFillerObject(int, bool, v8::internal::AllocationSpace)
+     62    0.0%    0.0%  v8::internal::NewSpace::AddFreshPage()
+     60    0.0%    0.0%  __libc_malloc
+     60    0.0%    0.0%  __clock_gettime
+     58    0.0%    0.0%  v8::internal::StandardFrame::IterateCompiledFrame(v8::internal::RootVisitor*) const
+     56    0.0%    0.0%  v8::internal::StoreBuffer::MoveEntriesToRememberedSet(int)
+     53    0.0%    0.0%  v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags)
+     50    0.0%    0.0%  v8::internal::ScavengeJob::ScheduleIdleTaskIfNeeded(v8::internal::Heap*, int)
+     47    0.0%    0.0%  __GI___pthread_mutex_unlock
+     46    0.0%    0.0%  munmap
+     45    0.0%    0.0%  node::NodePlatform::MonotonicallyIncreasingTime()
+     42    0.0%    0.0%  v8::internal::AllocationObserver::GetNextStepSize()
+     40    0.0%    0.0%  v8::internal::IterateAndScavengePromotedObjectsVisitor::VisitPointers(v8::internal::HeapObject*, v8::internal::Object**, v8::internal::Object**)
+     35    0.0%    0.0%  v8::internal::SafepointEntry::HasRegisters() const
+     35    0.0%    0.0%  v8::internal::Heap::GarbageCollectionEpilogue()
+     33    0.0%    0.0%  strlen
+     32    0.0%    0.0%  v8::internal::NewSpace::ResetAllocationInfo()
+     31    0.0%    0.0%  v8::internal::Heap::CreateFillerObjectAt(unsigned char*, int, v8::internal::ClearRecordedSlots)
+     30    0.0%    0.0%  v8::internal::LocalAllocationBuffer::AllocateRawAligned(int, v8::internal::AllocationAlignment)
+     29    0.0%    0.0%  v8::internal::PagedSpace::SizeOfObjects()
+     28    0.0%    0.0%  v8::internal::Scavenger::RecordCopiedObject(v8::internal::HeapObject*)
+     28    0.0%    0.0%  v8::internal::IncrementalMarking::Step(unsigned long, v8::internal::IncrementalMarking::CompletionAction, v8::internal::IncrementalMarking::ForceCompletionAction, v8::internal::StepOrigin)
+     27    0.0%    0.0%  v8::internal::StackFrameIterator::Advance()
+     27    0.0%    0.0%  v8::internal::MarkCompactCollector::Sweeper::EnsureNewSpaceCompleted()
+     26    0.0%    0.0%  v8::internal::Heap::ProcessPretenuringFeedback()
+     25    0.0%    0.0%  v8::internal::NewSpace::Size()
+     25    0.0%    0.0%  v8::internal::NewSpace::InlineAllocationStep(unsigned char*, unsigned char*, unsigned char*, unsigned long)
+     25    0.0%    0.0%  v8::internal::Histogram::AddSample(int)
+     25    0.0%    0.0%  cfree
+     23    0.0%    0.0%  v8::internal::Heap::MergeAllocationSitePretenuringFeedback(v8::base::PointerTemplateHashMapImpl<v8::base::DefaultAllocationPolicy> const&)
+     23    0.0%    0.0%  _init
+     21    0.0%    0.0%  v8::internal::IncrementalMarking::WhiteToGreyAndPush(v8::internal::HeapObject*)
+     21    0.0%    0.0%  v8::internal::HeapObject::set_map_word(v8::internal::MapWord)
+     20    0.0%    0.0%  v8::internal::StackFrameIteratorBase::StackFrameIteratorBase(v8::internal::Isolate*, bool)
+     18    0.0%    0.0%  v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)
+     18    0.0%    0.0%  v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationSpace)
+     17    0.0%    0.0%  write
+     17    0.0%    0.0%  v8::internal::Object* v8::internal::VisitWeakList<v8::internal::Context>(v8::internal::Heap*, v8::internal::Object*, v8::internal::WeakObjectRetainer*)
+     17    0.0%    0.0%  v8::internal::Heap::GetFillToAlign(unsigned char*, v8::internal::AllocationAlignment)
+     17    0.0%    0.0%  v8::internal::GCTracer::CurrentOldGenerationAllocationThroughputInBytesPerMillisecond() const
+     17    0.0%    0.0%  uv_hrtime
+     17    0.0%    0.0%  operator new(unsigned long)
+     16    0.0%    0.0%  operator delete(void*)
+     15    0.0%    0.0%  v8::internal::StackFrame::GetCallerState(v8::internal::StackFrame::State*) const
+     15    0.0%    0.0%  v8::internal::PagedSpace::Waste()
+     15    0.0%    0.0%  __GI___pthread_mutex_init
+     15    0.0%    0.0%  _IO_default_xsputn
+     14    0.0%    0.0%  v8::internal::Heap::MonotonicallyIncreasingTimeInMs()
+     14    0.0%    0.0%  v8::internal::GCTracer::Scope::~Scope()
+     12    0.0%    0.0%  v8::internal::GCTracer::Scope::Scope(v8::internal::GCTracer*, v8::internal::GCTracer::Scope::ScopeId)
+     11    0.0%    0.0%  void v8::internal::BodyDescriptorApply<v8::internal::CallIterateBody, void, v8::internal::HeapObject*, int, v8::internal::ObjectVisitor*>(v8::internal::InstanceType, v8::internal::HeapObject*, int, v8::internal::ObjectVisitor*)
+     11    0.0%    0.0%  v8::internal::StackFrameIterator::StackFrameIterator(v8::internal::Isolate*, v8::internal::ThreadLocalTop*)
+     10    0.0%    0.0%  void std::swap<v8::internal::Page>(v8::internal::Page&, v8::internal::Page&)
+     10    0.0%    0.0%  v8::internal::Space::CommittedMemory()
+     10    0.0%    0.0%  v8::internal::NewSpace::CommittedMemory()
+     10    0.0%    0.0%  v8::internal::JavaScriptFrame::Iterate(v8::internal::RootVisitor*) const
+     10    0.0%    0.0%  v8::internal::IncrementalMarking::CanBeActivated()
+     10    0.0%    0.0%  v8::internal::Heap::PromotedSpaceSizeOfObjects()
+     10    0.0%    0.0%  v8::internal::GCTracer::Stop(v8::internal::GarbageCollector)
+     10    0.0%    0.0%  v8::internal::GCTracer::ScavengeSpeedInBytesPerMillisecond(v8::internal::ScavengeSpeedMode) const
+     10    0.0%    0.0%  __lll_lock_wait
+      9    0.0%    0.0%  vsnprintf
+      9    0.0%    0.0%  void v8::internal::FlexibleBodyDescriptor<16>::IterateBody<v8::internal::IncrementalMarkingMarkingVisitor>(v8::internal::HeapObject*, int, v8::internal::IncrementalMarkingMarkingVisitor*)
+      9    0.0%    0.0%  void node::StreamBase::JSMethod<node::LibuvStreamWrap, &node::StreamBase::Writev>(v8::FunctionCallbackInfo<v8::Value> const&)
+      9    0.0%    0.0%  v8::internal::ThreadManager::Iterate(v8::internal::RootVisitor*)
+      9    0.0%    0.0%  v8::internal::Space::AllocationStep(unsigned char*, int)
+      9    0.0%    0.0%  v8::internal::Scavenger::IterateAndScavengePromotedObject(v8::internal::HeapObject*, int)
+      9    0.0%    0.0%  v8::internal::PagedSpace::PagedSpace(v8::internal::Heap*, v8::internal::AllocationSpace, v8::internal::Executability)
+      9    0.0%    0.0%  v8::internal::Isolate::Iterate(v8::internal::RootVisitor*, v8::internal::ThreadLocalTop*)
+      9    0.0%    0.0%  v8::internal::Heap::SizeOfObjects()
+      9    0.0%    0.0%  v8::internal::FreeList::Reset()
+      9    0.0%    0.0%  v8::internal::Bootstrapper::Iterate(v8::internal::RootVisitor*)
+      9    0.0%    0.0%  v8::internal::AllSpaces::next()
+      8    0.0%    0.0%  void node::StreamBase::JSMethod<node::LibuvStreamWrap, &(int node::StreamBase::WriteString<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&))>(v8::FunctionCallbackInfo<v8::Value> const&)
+      8    0.0%    0.0%  v8::internal::tracing::ScopedTracer::~ScopedTracer()
+      8    0.0%    0.0%  v8::internal::StoreBuffer::InsertDuringGarbageCollection(v8::internal::StoreBuffer*, unsigned char*)
+      8    0.0%    0.0%  v8::internal::StandardFrame::ComputeCallerState(v8::internal::StackFrame::State*) const
+      8    0.0%    0.0%  v8::internal::PagedSpace::Size()
+      8    0.0%    0.0%  v8::internal::LargeObjectSpace::Available()
+      8    0.0%    0.0%  v8::internal::Heap::YoungGenerationMutatorUtilization()
+      8    0.0%    0.0%  v8::internal::GlobalHandles::PostGarbageCollectionProcessing(v8::internal::GarbageCollector, v8::GCCallbackFlags)
+      8    0.0%    0.0%  v8::internal::CompilationCache::Iterate(v8::internal::RootVisitor*)
+      8    0.0%    0.0%  v8::base::Mutex::Lock()
+      7    0.0%    0.0%  v8::internal::PagedSpace::MergeCompactionSpace(v8::internal::CompactionSpace*)
+      7    0.0%    0.0%  v8::internal::OptimizedFrame::Iterate(v8::internal::RootVisitor*) const
+      7    0.0%    0.0%  v8::internal::Heap::StartIncrementalMarkingIfAllocationLimitIsReached(int, v8::GCCallbackFlags)
+      7    0.0%    0.0%  v8::internal::Heap::CallGCPrologueCallbacks(v8::GCType, v8::GCCallbackFlags)
+      7    0.0%    0.0%  v8::internal::GlobalHandles::PostScavengeProcessing(int)
+      7    0.0%    0.0%  v8::internal::GlobalHandles::IdentifyWeakUnmodifiedObjects(bool (*)(v8::internal::Object**))
+      7    0.0%    0.0%  v8::internal::GCTracer::NewSpaceAllocationThroughputInBytesPerMillisecond(double) const
+      7    0.0%    0.0%  v8::internal::EntryFrame::GetCallerState(v8::internal::StackFrame::State*) const
+      7    0.0%    0.0%  __pthread_enable_asynccancel
+      6    0.0%    0.0%  void std::vector<v8::internal::MemoryChunk*, std::allocator<v8::internal::MemoryChunk*> >::_M_emplace_back_aux<v8::internal::MemoryChunk* const&>(v8::internal::MemoryChunk* const&)
+      6    0.0%    0.0%  v8::internal::compiler::GraphReducer::ReduceTop()
+      6    0.0%    0.0%  v8::internal::PagedSpace::TearDown()
+      6    0.0%    0.0%  v8::internal::OldSpaces::next()
+      6    0.0%    0.0%  v8::internal::MarkCompactCollector::CollectEvacuationCandidates(v8::internal::PagedSpace*)
+      6    0.0%    0.0%  v8::internal::Malloced::Delete(void*)
+      6    0.0%    0.0%  v8::internal::LargeObjectSpace::SizeOfObjects()
+      6    0.0%    0.0%  v8::internal::IncrementalMarking::RecordWriteSlow(v8::internal::HeapObject*, v8::internal::Object**, v8::internal::Object*)
+      6    0.0%    0.0%  v8::internal::Heap::UpdateMaximumCommitted()
+      6    0.0%    0.0%  v8::internal::Heap::CommittedOldGenerationMemory()
+      6    0.0%    0.0%  v8::internal::GlobalHandles::MarkNewSpaceWeakUnmodifiedObjectsPending(bool (*)(v8::internal::Heap*, v8::internal::Object**))
+      6    0.0%    0.0%  v8::internal::ExitFrame::Iterate(v8::internal::RootVisitor*) const
+      6    0.0%    0.0%  v8::internal::EternalHandles::PostGarbageCollectionProcessing(v8::internal::Heap*)
+      6    0.0%    0.0%  strchrnul
+      6    0.0%    0.0%  std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)
+      6    0.0%    0.0%  _IO_setb
+      5    0.0%    0.0%  void v8::internal::BodyDescriptorBase::IterateBodyImpl<v8::internal::ObjectVisitor>(v8::internal::HeapObject*, int, int, v8::internal::ObjectVisitor*)
+      5    0.0%    0.0%  v8::internal::TimedHistogram::Stop(v8::base::ElapsedTimer*, v8::internal::Isolate*)
+      5    0.0%    0.0%  v8::internal::RelocIterator::next()
+      5    0.0%    0.0%  v8::internal::Logger::ResourceEvent(char const*, char const*)
+      5    0.0%    0.0%  v8::internal::Heap::SelectGarbageCollector(v8::internal::AllocationSpace, char const**)
+      5    0.0%    0.0%  v8::internal::GCTracer::Print() const
+      5    0.0%    0.0%  v8::internal::GCTracer::CombinedMarkCompactSpeedInBytesPerMillisecond()
+      5    0.0%    0.0%  v8::internal::ExitFrame::ComputeCallerState(v8::internal::StackFrame::State*) const
+      5    0.0%    0.0%  v8::base::OS::CommitPageSize()
+      5    0.0%    0.0%  uv_async_init
+      5    0.0%    0.0%  node::performance::MarkGarbageCollectionEnd(v8::Isolate*, v8::GCType, v8::GCCallbackFlags, void*)
+      5    0.0%    0.0%  isnan
+      5    0.0%    0.0%  int v8::internal::BinarySearch<(v8::internal::SearchMode)1, v8::internal::DescriptorArray>(v8::internal::DescriptorArray*, v8::internal::Name*, int, int*)
+      5    0.0%    0.0%  char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&, std::forward_iterator_tag)
+      4    0.0%    0.0%  v8::internal::TimedHistogram::Start(v8::base::ElapsedTimer*, v8::internal::Isolate*)
+      4    0.0%    0.0%  v8::internal::StubFrame::type() const
+      4    0.0%    0.0%  v8::internal::Scanner::Scan()
+      4    0.0%    0.0%  v8::internal::Relocatable::PostGarbageCollectionProcessing(v8::internal::Isolate*)
+      4    0.0%    0.0%  v8::internal::PagedSpace::EmptyAllocationInfo()
+      4    0.0%    0.0%  v8::internal::NewSpace::PauseAllocationObservers()
+      4    0.0%    0.0%  v8::internal::MemoryChunk::InsertAfter(v8::internal::MemoryChunk*)
+      4    0.0%    0.0%  v8::internal::MarkCompactWeakObjectRetainer::RetainAs(v8::internal::Object*)
+      4    0.0%    0.0%  v8::internal::MarkCompactCollector::Sweeper::ParallelSweepSpace(v8::internal::AllocationSpace, int, int)
+      4    0.0%    0.0%  v8::internal::Malloced::New(unsigned long)
+      4    0.0%    0.0%  v8::internal::LocalAllocationBuffer::Close()
+      4    0.0%    0.0%  v8::internal::IncrementalMarking::UpdateMarkingWorklistAfterScavenge()
+      4    0.0%    0.0%  v8::internal::Heap::GarbageCollectionReasonToString(v8::internal::GarbageCollectionReason)
+      4    0.0%    0.0%  v8::internal::GlobalHandles::UpdateListOfNewSpaceNodes()
+      4    0.0%    0.0%  v8::internal::GCTracer::CurrentAllocationThroughputInBytesPerMillisecond() const
+      4    0.0%    0.0%  v8::internal::FreeList::SearchForNodeInList(v8::internal::FreeListCategoryType, unsigned long*, unsigned long)
+      4    0.0%    0.0%  v8::internal::FreeList::FindNodeIn(v8::internal::FreeListCategoryType, unsigned long*)
+      4    0.0%    0.0%  v8::internal::Factory::NewBlockContext(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Handle<v8::internal::Context>, v8::internal::Handle<v8::internal::ScopeInfo>)
+      4    0.0%    0.0%  __libc_write
+      4    0.0%    0.0%  __GI___pthread_mutex_destroy
+      3    0.0%    0.0%  v8::internal::StubFrame::GetCallerStackPointer() const
+      3    0.0%    0.0%  v8::internal::StoreBuffer::MoveAllEntriesToRememberedSet()
+      3    0.0%    0.0%  v8::internal::Runtime_PushBlockContext(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.0%    0.0%  v8::internal::PauseAllocationObserversScope::PauseAllocationObserversScope(v8::internal::Heap*)
+      3    0.0%    0.0%  v8::internal::OptimizedFrame::type() const
+      3    0.0%    0.0%  v8::internal::NewSpace::ResumeAllocationObservers()
+      3    0.0%    0.0%  v8::internal::JavaScriptFrame::GetCallerStackPointer() const
+      3    0.0%    0.0%  v8::internal::Heap::CopyJSObject(v8::internal::JSObject*, v8::internal::AllocationSite*)
+      3    0.0%    0.0%  v8::internal::Heap::ComputeFastPromotionMode(double)
+      3    0.0%    0.0%  v8::internal::HandleScopeImplementer::IterateThis(v8::internal::RootVisitor*)
+      3    0.0%    0.0%  v8::internal::HandleScopeImplementer::Iterate(v8::internal::RootVisitor*)
+      3    0.0%    0.0%  v8::internal::GlobalHandles::DispatchPendingPhantomCallbacks(bool)
+      3    0.0%    0.0%  v8::internal::GCTracer::Output(char const*, ...) const
+      3    0.0%    0.0%  v8::internal::EternalHandles::IterateNewSpaceRoots(v8::internal::RootVisitor*)
+      3    0.0%    0.0%  v8::internal::Debug::Iterate(v8::internal::RootVisitor*)
+      3    0.0%    0.0%  node::HandleWrap::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.0%    0.0%  getpid
+      2    0.0%    0.0%  void v8::internal::Code::BodyDescriptor::IterateBody<v8::internal::IncrementalMarkingMarkingVisitor>(v8::internal::HeapObject*, v8::internal::IncrementalMarkingMarkingVisitor*)
+      2    0.0%    0.0%  v8::internal::compiler::SourcePositionTable::GetSourcePosition(v8::internal::compiler::Node*) const
+      2    0.0%    0.0%  v8::internal::compiler::Node::InsertInput(v8::internal::Zone*, int, v8::internal::compiler::Node*)
+      2    0.0%    0.0%  v8::internal::compiler::GraphTrimmer::TrimGraph()
+      2    0.0%    0.0%  v8::internal::VSNPrintF(v8::internal::Vector<char>, char const*, __va_list_tag*)
+      2    0.0%    0.0%  v8::internal::Space::PauseAllocationObservers()
+      2    0.0%    0.0%  v8::internal::SemiSpace::set_age_mark(unsigned char*)
+      2    0.0%    0.0%  v8::internal::Scavenger::Finalize()
+      2    0.0%    0.0%  v8::internal::Relocatable::Iterate(v8::internal::Isolate*, v8::internal::RootVisitor*)
+      2    0.0%    0.0%  v8::internal::PrototypeIterator::Advance()
+      2    0.0%    0.0%  v8::internal::PauseAllocationObserversScope::~PauseAllocationObserversScope()
+      2    0.0%    0.0%  v8::internal::ParserBase<v8::internal::Parser>::ParseUnaryExpression(bool*)
+      2    0.0%    0.0%  v8::internal::ParserBase<v8::internal::Parser>::BindingPatternUnexpectedToken()
+      2    0.0%    0.0%  v8::internal::PagedSpace::ResetFreeListStatistics()
+      2    0.0%    0.0%  v8::internal::NewSpace::Flip()
+      2    0.0%    0.0%  v8::internal::Logger::NewEvent(char const*, void*, unsigned long)
+      2    0.0%    0.0%  v8::internal::LocalAllocator::NewLocalAllocationBuffer()
+      2    0.0%    0.0%  v8::internal::LocalAllocationBuffer::LocalAllocationBuffer(v8::internal::Heap*, v8::internal::AllocationInfo)
+      2    0.0%    0.0%  v8::internal::LiveObjectRange<(v8::internal::LiveObjectIterationMode)0>::iterator::AdvanceToNextValidObject()
+      2    0.0%    0.0%  v8::internal::Isolate::IterateDeferredHandles(v8::internal::RootVisitor*)
+      2    0.0%    0.0%  v8::internal::InternalFrame::GetCallerStackPointer() const
+      2    0.0%    0.0%  v8::internal::IncrementalMarking::ProcessWeakCells()
+      2    0.0%    0.0%  v8::internal::IncrementalMarking::DeactivateIncrementalWriteBarrierForSpace(v8::internal::PagedSpace*)
+      2    0.0%    0.0%  v8::internal::IncrementalMarking::ActivateIncrementalWriteBarrier(v8::internal::PagedSpace*)
+      2    0.0%    0.0%  v8::internal::IC::UpdatePolymorphicIC(v8::internal::Handle<v8::internal::Name>, v8::internal::Handle<v8::internal::Object>)
+      2    0.0%    0.0%  v8::internal::HeapObject::IterateBody(v8::internal::InstanceType, int, v8::internal::ObjectVisitor*)
+      2    0.0%    0.0%  v8::internal::Heap::CommittedMemory()
+      2    0.0%    0.0%  v8::internal::Heap::CheckNewSpaceExpansionCriteria()
+      2    0.0%    0.0%  v8::internal::Heap::CallGCEpilogueCallbacks(v8::GCType, v8::GCCallbackFlags)
+      2    0.0%    0.0%  v8::internal::Heap::AddToRingBuffer(char const*)
+      2    0.0%    0.0%  v8::internal::Handle<v8::internal::String> v8::internal::JsonParser<true>::ScanJsonString<false>()
+      2    0.0%    0.0%  v8::internal::GlobalHandles::IterateNewSpaceStrongAndDependentRoots(v8::internal::RootVisitor*)
+      2    0.0%    0.0%  v8::internal::GCTracer::NotifyYoungGenerationHandling(v8::internal::YoungGenerationHandling)
+      2    0.0%    0.0%  v8::internal::FreeList::Free(unsigned char*, unsigned long, v8::internal::FreeMode)
+      2    0.0%    0.0%  v8::internal::FreeList::FindNodeFor(unsigned long, unsigned long*)
+      2    0.0%    0.0%  v8::internal::FreeList::Allocate(unsigned long)
+      2    0.0%    0.0%  v8::internal::FeedbackVector::New(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>)
+      2    0.0%    0.0%  v8::internal::CompactionSpace::SlowAllocateRaw(int)
+      2    0.0%    0.0%  v8::base::VirtualMemory::~VirtualMemory()
+      2    0.0%    0.0%  v8::base::RecursiveMutex::Unlock()
+      2    0.0%    0.0%  v8::base::OS::GetRandomMmapAddr()
+      2    0.0%    0.0%  v8::base::Mutex::Mutex()
+      2    0.0%    0.0%  uv_async_send
+      2    0.0%    0.0%  std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&)
+      2    0.0%    0.0%  node::performance::MarkGarbageCollectionStart(v8::Isolate*, v8::GCType, v8::GCCallbackFlags)
+      2    0.0%    0.0%  madvise
+      2    0.0%    0.0%  _IO_padn
+      1    0.0%    0.0%  void v8::internal::String::WriteToFlat<unsigned char>(v8::internal::String*, unsigned char*, int, int)
+      1    0.0%    0.0%  void v8::internal::FlexibleBodyDescriptor<8>::IterateBody<v8::internal::IncrementalMarkingMarkingVisitor>(v8::internal::HeapObject*, int, v8::internal::IncrementalMarkingMarkingVisitor*)
+      1    0.0%    0.0%  void v8::internal::BodyDescriptorBase::IteratePointers<v8::internal::IncrementalMarkingMarkingVisitor>(v8::internal::HeapObject*, int, int, v8::internal::IncrementalMarkingMarkingVisitor*)
+      1    0.0%    0.0%  void v8::internal::BodyDescriptorApply<v8::internal::CallIterateBody, void, v8::internal::HeapObject*, int, v8::internal::RecordMigratedSlotVisitor*>(v8::internal::InstanceType, v8::internal::HeapObject*, int, v8::internal::RecordMigratedSlotVisitor*)
+      1    0.0%    0.0%  void std::vector<v8::internal::interpreter::ConstantArrayBuilder::Entry, v8::internal::ZoneAllocator<v8::internal::interpreter::ConstantArrayBuilder::Entry> >::_M_emplace_back_aux<v8::internal::interpreter::ConstantArrayBuilder::Entry const&>(v8::internal::interpreter::ConstantArrayBuilder::Entry const&)
+      1    0.0%    0.0%  void std::__introsort_loop<v8::base::AtomicElement<v8::internal::Smi*>*, long, v8::internal::EnumIndexComparator<v8::internal::NameDictionary> >(v8::base::AtomicElement<v8::internal::Smi*>*, v8::base::AtomicElement<v8::internal::Smi*>*, long, v8::internal::EnumIndexComparator<v8::internal::NameDictionary>)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterTransfer(v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*, v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeRegisterOptimizer::Materialize(v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeRegisterOptimizer::Flush()
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeGenerator::VisitNoStackOverflowCheck(v8::internal::AstNode*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeGenerator::VisitCallRuntime(v8::internal::CallRuntime*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeDecoder::DecodeUnsignedOperand(unsigned char const*, v8::internal::interpreter::OperandType, v8::internal::interpreter::OperandScale)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayWriter::WriteJump(v8::internal::interpreter::BytecodeNode*, v8::internal::interpreter::BytecodeLabel*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayWriter::Write(v8::internal::interpreter::BytecodeNode*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayBuilder::LoadContextSlot(v8::internal::interpreter::Register, int, int, v8::internal::interpreter::BytecodeArrayBuilder::ContextSlotMutability)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayBuilder::Jump(v8::internal::interpreter::BytecodeLabel*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayAccessor::SetOffset(int)
+      1    0.0%    0.0%  v8::internal::compiler::TypedOptimization::ReducePhi(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::Type::Union(v8::internal::compiler::Type*, v8::internal::compiler::Type*, v8::internal::Zone*)
+      1    0.0%    0.0%  v8::internal::compiler::Type::SlowIs(v8::internal::compiler::Type*)
+      1    0.0%    0.0%  v8::internal::compiler::SourcePositionTable::Decorator::Decorate(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::OperatorProperties::HasContextInput(v8::internal::compiler::Operator const*)
+      1    0.0%    0.0%  v8::internal::compiler::Operator::Operator(unsigned short, v8::base::Flags<v8::internal::compiler::Operator::Property, unsigned char>, char const*, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)
+      1    0.0%    0.0%  v8::internal::compiler::NodeProperties::GetValueInput(v8::internal::compiler::Node*, int)
+      1    0.0%    0.0%  v8::internal::compiler::Node::New(v8::internal::Zone*, unsigned int, v8::internal::compiler::Operator const*, int, v8::internal::compiler::Node* const*, bool)
+      1    0.0%    0.0%  v8::internal::compiler::LoopVariableOptimizer::VisitNode(v8::internal::compiler::Node*)
+      1    0.0%    0.0%  v8::internal::compiler::LinearScanAllocator::TryAllocatePreferredReg(v8::internal::compiler::LiveRange*, v8::internal::Vector<v8::internal::compiler::LifetimePosition> const&)
+      1    0.0%    0.0%  v8::internal::compiler::FrameElider::MarkBlocks()
+      1    0.0%    0.0%  v8::internal::compiler::CodeGenerator::PopulateDeoptimizationData(v8::internal::Handle<v8::internal::Code>)
+      1    0.0%    0.0%  v8::internal::compiler::BytecodeGraphBuilder::BuildKeyedStore(v8::internal::LanguageMode)
+      1    0.0%    0.0%  v8::internal::compiler::BasicBlock::GetCommonDominator(v8::internal::compiler::BasicBlock*, v8::internal::compiler::BasicBlock*)
+      1    0.0%    0.0%  v8::internal::Zone::New(unsigned long)
+      1    0.0%    0.0%  v8::internal::ThreadId::GetCurrentThreadId()
+      1    0.0%    0.0%  v8::internal::StringHasher::GetHashField()
+      1    0.0%    0.0%  v8::internal::String::SlowEquals(v8::internal::String*)
+      1    0.0%    0.0%  v8::internal::String::Flatten(v8::internal::Handle<v8::internal::String>, v8::internal::PretenureFlag)
+      1    0.0%    0.0%  v8::internal::StoreIC::GetMapIndependentHandler(v8::internal::LookupIterator*)
+      1    0.0%    0.0%  v8::internal::StackGuard::HandleInterrupts()
+      1    0.0%    0.0%  v8::internal::SourcePositionTableBuilder::AddEntry(v8::internal::PositionTableEntry const&)
+      1    0.0%    0.0%  v8::internal::SeqOneByteSubStringKey::IsMatch(v8::internal::Object*)
+      1    0.0%    0.0%  v8::internal::Script::GetPositionInfo(int, v8::internal::Script::PositionInfo*, v8::internal::Script::OffsetFlag) const
+      1    0.0%    0.0%  v8::internal::Script::GetLineNumber(v8::internal::Handle<v8::internal::Script>, int)
+      1    0.0%    0.0%  v8::internal::ScopeInfo::scope_type()
+      1    0.0%    0.0%  v8::internal::Scope::LookupRecursive(v8::internal::VariableProxy*, v8::internal::Scope*)
+      1    0.0%    0.0%  v8::internal::Scope::FinalizeBlockScope()
+      1    0.0%    0.0%  v8::internal::Scope::DeclareVariable(v8::internal::Declaration*, v8::internal::VariableMode, v8::internal::InitializationFlag, bool, bool*, bool*)
+      1    0.0%    0.0%  v8::internal::Scavenger::EvacuateShortcutCandidate(v8::internal::Map*, v8::internal::HeapObject**, v8::internal::ConsString*, int)
+      1    0.0%    0.0%  v8::internal::Scanner::SkipSingleLineComment()
+      1    0.0%    0.0%  v8::internal::Scanner::Next()
+      1    0.0%    0.0%  v8::internal::Runtime_InterpreterNewClosure(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::RelocIterator::RelocIterator(v8::internal::Code*, int)
+      1    0.0%    0.0%  v8::internal::ParserBase<v8::internal::PreParser>::ParsePrimaryExpression(bool*, bool*)
+      1    0.0%    0.0%  v8::internal::ParserBase<v8::internal::Parser>::ParseBlock(v8::internal::ZoneList<v8::internal::AstRawString const*>*, bool*)
+      1    0.0%    0.0%  v8::internal::ParserBase<v8::internal::Parser>::ParseBinaryExpression(int, bool, bool*)
+      1    0.0%    0.0%  v8::internal::ParserBase<v8::internal::Parser>::ParseArguments(v8::internal::Scanner::Location*, bool, bool*)
+      1    0.0%    0.0%  v8::internal::Parser::ParseFunctionLiteral(v8::internal::AstRawString const*, v8::internal::Scanner::Location, v8::internal::FunctionNameValidity, v8::internal::FunctionKind, int, v8::internal::FunctionLiteral::FunctionType, v8::internal::LanguageMode, bool*)
+      1    0.0%    0.0%  v8::internal::Parser::ParseFunction(v8::internal::Isolate*, v8::internal::ParseInfo*)
+      1    0.0%    0.0%  v8::internal::PagedSpace::SetAllocationInfo(unsigned char*, unsigned char*)
+      1    0.0%    0.0%  v8::internal::PagedSpace::ReleasePage(v8::internal::Page*)
+      1    0.0%    0.0%  v8::internal::Page* v8::internal::MemoryAllocator::AllocatePage<(v8::internal::MemoryAllocator::AllocationMode)1, v8::internal::SemiSpace>(unsigned long, v8::internal::SemiSpace*, v8::internal::Executability)
+      1    0.0%    0.0%  v8::internal::Page* v8::internal::MemoryAllocator::AllocatePage<(v8::internal::MemoryAllocator::AllocationMode)0, v8::internal::PagedSpace>(unsigned long, v8::internal::PagedSpace*, v8::internal::Executability)
+      1    0.0%    0.0%  v8::internal::Object::SetProperty(v8::internal::LookupIterator*, v8::internal::Handle<v8::internal::Object>, v8::internal::LanguageMode, v8::internal::Object::StoreFromKeyed)
+      1    0.0%    0.0%  v8::internal::NewSpace::Available()
+      1    0.0%    0.0%  v8::internal::MemoryAllocator::CodePageAreaStartOffset()
+      1    0.0%    0.0%  v8::internal::MemoryAllocator::AllocateChunk(unsigned long, unsigned long, v8::internal::Executability, v8::internal::Space*)
+      1    0.0%    0.0%  v8::internal::MarkCompactCollector::Sweeper::GetSweptPageSafe(v8::internal::PagedSpace*)
+      1    0.0%    0.0%  v8::internal::Map::RawCopy(v8::internal::Handle<v8::internal::Map>, int)
+      1    0.0%    0.0%  v8::internal::MacroAssembler::MacroAssembler(v8::internal::Isolate*, void*, int, v8::internal::CodeObjectRequired)
+      1    0.0%    0.0%  v8::internal::LookupIterator::PrepareForDataProperty(v8::internal::Handle<v8::internal::Object>)
+      1    0.0%    0.0%  v8::internal::LookupIterator::GetFieldIndex() const
+      1    0.0%    0.0%  v8::internal::LookupIterator::GetDataValue() const
+      1    0.0%    0.0%  v8::internal::LocalEmbedderHeapTracer::RegisterWrappersWithRemoteTracer()
+      1    0.0%    0.0%  v8::internal::LocalAllocationBuffer::LocalAllocationBuffer(v8::internal::LocalAllocationBuffer const&)
+      1    0.0%    0.0%  v8::internal::LargeObjectSpace::Size()
+      1    0.0%    0.0%  v8::internal::KeyedLoadICNexus::StateFromFeedback() const
+      1    0.0%    0.0%  v8::internal::JsonParser<true>::ParseJsonString(v8::internal::Handle<v8::internal::String>)
+      1    0.0%    0.0%  v8::internal::JsonParser<true>::ParseJsonObject()
+      1    0.0%    0.0%  v8::internal::JSObject::OptimizeAsPrototype(v8::internal::Handle<v8::internal::JSObject>)
+      1    0.0%    0.0%  v8::internal::JSObject::MigrateToMap(v8::internal::Handle<v8::internal::JSObject>, v8::internal::Handle<v8::internal::Map>, int)
+      1    0.0%    0.0%  v8::internal::JSFunction::EnsureHasInitialMap(v8::internal::Handle<v8::internal::JSFunction>)
+      1    0.0%    0.0%  v8::internal::Isolate::Iterate(v8::internal::RootVisitor*)
+      1    0.0%    0.0%  v8::internal::InternalizedStringKey::IsMatch(v8::internal::Object*)
+      1    0.0%    0.0%  v8::internal::InternalFrame::Iterate(v8::internal::RootVisitor*) const
+      1    0.0%    0.0%  v8::internal::IncrementalMarking::Start(v8::internal::GarbageCollectionReason)
+      1    0.0%    0.0%  v8::internal::IncrementalMarking::AdvanceIncrementalMarkingOnAllocation()
+      1    0.0%    0.0%  v8::internal::Heap::UpdateTotalGCTime(double)
+      1    0.0%    0.0%  v8::internal::Heap::OldGenerationCapacity()
+      1    0.0%    0.0%  v8::internal::Heap::AllocateMap(v8::internal::InstanceType, int, v8::internal::ElementsKind)
+      1    0.0%    0.0%  v8::internal::HashTable<v8::internal::StringTable, v8::internal::StringTableShape>::FindEntry(v8::internal::Isolate*, v8::internal::StringTableKey*)
+      1    0.0%    0.0%  v8::internal::HashTable<v8::internal::NameDictionary, v8::internal::NameDictionaryShape>::Rehash(v8::internal::NameDictionary*)
+      1    0.0%    0.0%  v8::internal::Handle<v8::internal::String> v8::internal::JsonParser<true>::ScanJsonString<true>()
+      1    0.0%    0.0%  v8::internal::Handle<v8::internal::FeedbackMetadata> v8::internal::FeedbackMetadata::New<v8::internal::FeedbackVectorSpec>(v8::internal::Isolate*, v8::internal::FeedbackVectorSpec const*)
+      1    0.0%    0.0%  v8::internal::GlobalHandles::IterateStrongRoots(v8::internal::RootVisitor*)
+      1    0.0%    0.0%  v8::internal::GlobalHandles::IterateNewSpaceWeakUnmodifiedRoots(v8::internal::RootVisitor*)
+      1    0.0%    0.0%  v8::internal::GCTracer::AddSurvivalRatio(double)
+      1    0.0%    0.0%  v8::internal::FunctionCallbackArguments::Call(void (*)(v8::FunctionCallbackInfo<v8::Value> const&))
+      1    0.0%    0.0%  v8::internal::FuncNameInferrer::MakeNameFromStack()
+      1    0.0%    0.0%  v8::internal::FieldType::cast(v8::internal::Object*)
+      1    0.0%    0.0%  v8::internal::FeedbackVectorSpec::HasTypeProfileSlot() const
+      1    0.0%    0.0%  v8::internal::FeedbackNexus::ExtractMaps(std::vector<v8::internal::Handle<v8::internal::Map>, std::allocator<v8::internal::Handle<v8::internal::Map> > >*) const
+      1    0.0%    0.0%  v8::internal::FastKeyAccumulator::Prepare()
+      1    0.0%    0.0%  v8::internal::Factory::NewScopeInfo(int)
+      1    0.0%    0.0%  v8::internal::Factory::NewFunction(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Object>, v8::internal::PretenureFlag)
+      1    0.0%    0.0%  v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*)
+      1    0.0%    0.0%  v8::internal::EvacuateNewSpaceVisitor::Visit(v8::internal::HeapObject*, int)
+      1    0.0%    0.0%  v8::internal::EntryFrame::Iterate(v8::internal::RootVisitor*) const
+      1    0.0%    0.0%  v8::internal::Deoptimizer::VisitAllOptimizedFunctionsForContext(v8::internal::Context*, v8::internal::OptimizedFunctionVisitor*)
+      1    0.0%    0.0%  v8::internal::ConvertOneByteToLower(v8::internal::String*, v8::internal::String*, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::ConcurrentMarking::PauseScope::~PauseScope()
+      1    0.0%    0.0%  v8::internal::ConcurrentMarking::PauseScope::PauseScope(v8::internal::ConcurrentMarking*)
+      1    0.0%    0.0%  v8::internal::CompilationJob::can_execute_on_background_thread() const
+      1    0.0%    0.0%  v8::internal::CompilationInfo::CompilationInfo(v8::internal::Zone*, v8::internal::ParseInfo*, v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>)
+      1    0.0%    0.0%  v8::internal::CompilationCacheTable::Age()
+      1    0.0%    0.0%  v8::internal::CodeStubAssembler::LoadObjectField(v8::internal::compiler::Node*, int, v8::internal::MachineType)
+      1    0.0%    0.0%  v8::internal::Code::CopyFrom(v8::internal::CodeDesc const&)
+      1    0.0%    0.0%  v8::internal::CanonicalHandleScope::Lookup(v8::internal::Object*)
+      1    0.0%    0.0%  v8::internal::Call::AssignFeedbackSlots(v8::internal::FeedbackVectorSpec*, v8::internal::LanguageMode, v8::internal::FeedbackSlotCache*)
+      1    0.0%    0.0%  v8::internal::Builtins::InterpreterEnterBytecodeDispatch()
+      1    0.0%    0.0%  v8::internal::Builtin_JsonParse(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::BaseNameDictionary<v8::internal::NameDictionary, v8::internal::NameDictionaryShape>::Add(v8::internal::Handle<v8::internal::NameDictionary>, v8::internal::Handle<v8::internal::Name>, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyDetails, int*)
+      1    0.0%    0.0%  v8::internal::AstValueFactory::GetString(unsigned int, bool, v8::internal::Vector<unsigned char const>)
+      1    0.0%    0.0%  v8::internal::AstNumberingVisitor::VisitVariableProxy(v8::internal::VariableProxy*, v8::internal::TypeofMode)
+      1    0.0%    0.0%  v8::internal::AstNumberingVisitor::Renumber(v8::internal::FunctionLiteral*)
+      1    0.0%    0.0%  v8::internal::Assembler::bind_to(v8::internal::Label*, int)
+      1    0.0%    0.0%  v8::internal::AllocationResult v8::internal::Heap::AllocateInternalizedStringImpl<true, v8::internal::String*>(v8::internal::String*, int, unsigned int)
+      1    0.0%    0.0%  v8::internal::AccountingAllocator::ReturnSegment(v8::internal::Segment*)
+      1    0.0%    0.0%  v8::internal::Accessors::FunctionPrototypeSetter(v8::Local<v8::Name>, v8::Local<v8::Value>, v8::PropertyCallbackInfo<v8::Boolean> const&)
+      1    0.0%    0.0%  v8::internal::Accessors::FunctionLengthGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  v8::base::VirtualMemory::VirtualMemory()
+      1    0.0%    0.0%  v8::base::RandomNumberGenerator::NextBytes(void*, unsigned long)
+      1    0.0%    0.0%  v8::base::OS::GetCurrentProcessId()
+      1    0.0%    0.0%  v8::base::Mutex::Unlock()
+      1    0.0%    0.0%  v8::Context::Enter()
+      1    0.0%    0.0%  sysconf
+      1    0.0%    0.0%  std::_Hashtable<v8::internal::JSArrayBuffer*, v8::internal::JSArrayBuffer*, std::allocator<v8::internal::JSArrayBuffer*>, std::__detail::_Identity, std::equal_to<v8::internal::JSArrayBuffer*>, std::hash<v8::internal::JSArrayBuffer*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<v8::internal::JSArrayBuffer*, false>*)
+      1    0.0%    0.0%  sem_wait
+      1    0.0%    0.0%  open
+      1    0.0%    0.0%  node::performance::PerformanceGCCallback(uv_async_s*)
+      1    0.0%    0.0%  node::WriteWrap::~WriteWrap()
+      1    0.0%    0.0%  node::InternalCallbackScope::InternalCallbackScope(node::Environment*, v8::Local<v8::Object>, node::async_context const&, node::InternalCallbackScope::ResourceExpectation)
+      1    0.0%    0.0%  memset
+      1    0.0%    0.0%  isinf
+      1    0.0%    0.0%  int v8::internal::BinarySearch<(v8::internal::SearchMode)0, v8::internal::TransitionArray>(v8::internal::TransitionArray*, v8::internal::Name*, int, int*)
+      1    0.0%    0.0%  getpagesize
+      1    0.0%    0.0%  double v8::internal::InternalStringToDouble<unsigned char const*, unsigned char const*>(v8::internal::UnicodeCache*, unsigned char const*, unsigned char const*, int, double)
+      1    0.0%    0.0%  c32rtomb
+      1    0.0%    0.0%  __pthread_mutexattr_init
+      1    0.0%    0.0%  __pthread_mutexattr_destroy
+      1    0.0%    0.0%  __pthread_disable_asynccancel
+      1    0.0%    0.0%  __pthread_cond_signal
+
+ [Summary]:
+   ticks  total  nonlib   name
+  140382   44.1%   46.7%  JavaScript
+  43077   13.5%   14.3%  C++
+  23141    7.3%    7.7%  GC
+  17759    5.6%          Shared libraries
+  117308   36.8%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+  35875   95.2%   11.3%  v8::internal::Builtin_ArraySlice(int, v8::internal::Object**, v8::internal::Isolate*)
+   1328    3.5%    0.4%  v8::internal::Runtime_AllocateInNewSpace(int, v8::internal::Object**, v8::internal::Isolate*)
+    246    0.7%    0.1%  v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     76    0.2%    0.0%  v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+     33    0.1%    0.0%  v8::internal::Runtime_CompileOptimized_Concurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+     15    0.0%    0.0%  v8::internal::Runtime_StackGuard(int, v8::internal::Object**, v8::internal::Isolate*)
+     14    0.0%    0.0%  v8::internal::Builtin_JsonParse(int, v8::internal::Object**, v8::internal::Isolate*)
+     10    0.0%    0.0%  v8::internal::Runtime_LoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      9    0.0%    0.0%  v8::internal::Runtime_StoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      9    0.0%    0.0%  v8::internal::Runtime_PushBlockContext(int, v8::internal::Object**, v8::internal::Isolate*)
+      5    0.0%    0.0%  v8::internal::Runtime_NewObject(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.0%    0.0%  v8::internal::Runtime_SetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.0%    0.0%  v8::internal::Runtime_KeyedLoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.0%    0.0%  v8::internal::Runtime_CreateArrayLiteral(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.0%    0.0%  v8::internal::Runtime_CompileForOnStackReplacement(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.0%    0.0%  v8::internal::Runtime_ResolvePossiblyDirectEval(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.0%    0.0%  v8::internal::Runtime_KeyedStoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.0%    0.0%  v8::internal::Runtime_KeyedGetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.0%    0.0%  v8::internal::Runtime_InterpreterNewClosure(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.0%    0.0%  write
+      2    0.0%    0.0%  v8::internal::Runtime_ObjectKeys(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.0%    0.0%  v8::internal::Runtime_CreateObjectLiteral(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.0%    0.0%  v8::internal::NewSpace::EnsureAllocation(int, v8::internal::AllocationAlignment)
+      2    0.0%    0.0%  v8::internal::Builtin_ObjectSetPrototypeOf(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::interpreter::BytecodeArrayWriter::WriteJump(v8::internal::interpreter::BytecodeNode*, v8::internal::interpreter::BytecodeLabel*)
+      1    0.0%    0.0%  v8::internal::Runtime_StringToNumber(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Runtime_StringToLowerCaseIntl(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Runtime_StringReplaceGlobalRegExpWithString(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Runtime_StringIndexOfUnchecked(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Runtime_RegExpExec(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Runtime_NotifyDeoptimized(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Runtime_LoadGlobalIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Runtime_Interrupt(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.0%    0.0%  v8::internal::Accessors::ErrorStackGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+  117308   36.8%  UNKNOWN
+  53911   46.0%    LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  53911  100.0%      Builtin: ArrayForEach
+  53543   99.3%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  53543  100.0%          Builtin: ArrayForEach
+  53529  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  53053   45.2%    LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  53053  100.0%      Builtin: ArrayForEach
+  53051  100.0%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  53051  100.0%          Builtin: ArrayForEach
+  53045  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   4427    3.8%    LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+   4323   97.7%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   4323  100.0%        Builtin: ArrayForEach
+   4277   98.9%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   4277  100.0%            Builtin: ArrayForEach
+    102    2.3%      Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+    102  100.0%        Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+    102  100.0%          Builtin: ArrayForEach
+     79   77.5%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+     12   11.8%            LazyCompile: *minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+     11   10.8%            Function: ~minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+   1308    1.1%    LazyCompile: *makeMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:64:18
+   1183   90.4%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   1183  100.0%        Builtin: ArrayForEach
+   1183  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   1183  100.0%            Builtin: ArrayForEach
+    111    8.5%      LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+    107   96.4%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+    107  100.0%          Builtin: ArrayForEach
+    106   99.1%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      4    3.6%        Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+      4  100.0%          Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      4  100.0%            Builtin: ArrayForEach
+     14    1.1%      LazyCompile: *maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+     14  100.0%        Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     14  100.0%          Builtin: ArrayForEach
+     13   92.9%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+      1    7.1%            Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+
+  49038   15.4%  LazyCompile: *isLegalMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:119:21
+  25249   51.5%    LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  25249  100.0%      Builtin: ArrayForEach
+  25016   99.1%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  25016  100.0%          Builtin: ArrayForEach
+  25016  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  21163   43.2%    LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  21163  100.0%      Builtin: ArrayForEach
+  21159  100.0%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  21159  100.0%          Builtin: ArrayForEach
+  21156  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   1981    4.0%    LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+   1900   95.9%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   1900  100.0%        Builtin: ArrayForEach
+   1869   98.4%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   1869  100.0%            Builtin: ArrayForEach
+     81    4.1%      Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+     81  100.0%        Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     81  100.0%          Builtin: ArrayForEach
+     72   88.9%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+      9   11.1%            Function: ~minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+    510    1.0%    LazyCompile: *makeMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:64:18
+    471   92.4%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+    471  100.0%        Builtin: ArrayForEach
+    471  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+    471  100.0%            Builtin: ArrayForEach
+     36    7.1%      LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+     35   97.2%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+     35  100.0%          Builtin: ArrayForEach
+     35  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      1    2.8%        Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+      1  100.0%          Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      1  100.0%            Builtin: ArrayForEach
+
+  34166   10.7%  Builtin: StringEqual
+  17380   50.9%    LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  17379  100.0%      Builtin: ArrayForEach
+  17238   99.2%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  17238  100.0%          Builtin: ArrayForEach
+  17234  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   8326   24.4%    LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   8326  100.0%      Builtin: ArrayForEach
+   8326  100.0%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   8326  100.0%          Builtin: ArrayForEach
+   8325  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   5664   16.6%    LazyCompile: *isLegalMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:119:21
+   2770   48.9%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   2770  100.0%        Builtin: ArrayForEach
+   2747   99.2%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   2747  100.0%            Builtin: ArrayForEach
+   2613   46.1%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   2613  100.0%        Builtin: ArrayForEach
+   2613  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   2613  100.0%            Builtin: ArrayForEach
+    260    4.6%      LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+    248   95.4%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+    248  100.0%          Builtin: ArrayForEach
+    247   99.6%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     12    4.6%        Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+     12  100.0%          Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     12  100.0%            Builtin: ArrayForEach
+   1991    5.8%    LazyCompile: *makeMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:64:18
+   1783   89.6%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   1783  100.0%        Builtin: ArrayForEach
+   1782   99.9%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   1782  100.0%            Builtin: ArrayForEach
+    192    9.6%      LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+    186   96.9%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+    186  100.0%          Builtin: ArrayForEach
+    186  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      6    3.1%        Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+      6  100.0%          Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      6  100.0%            Builtin: ArrayForEach
+    763    2.2%    LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+    736   96.5%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+    736  100.0%        Builtin: ArrayForEach
+    727   98.8%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+    727  100.0%            Builtin: ArrayForEach
+     26    3.4%      Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+     26  100.0%        Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     26  100.0%          Builtin: ArrayForEach
+     24   92.3%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+      1    3.8%            LazyCompile: *minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+      1    3.8%            Function: ~minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+
+  26277    8.2%  LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  26275  100.0%    Builtin: ArrayForEach
+  26040   99.1%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  26040  100.0%        Builtin: ArrayForEach
+  26038  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  26038  100.0%            Builtin: ArrayForEach
+
+  16383    5.1%  /usr/bin/node
+  15939   97.3%    v8::internal::Builtin_ArraySlice(int, v8::internal::Object**, v8::internal::Isolate*)
+  14345   90.0%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  14345  100.0%        Builtin: ArrayForEach
+  14342  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  14342  100.0%            Builtin: ArrayForEach
+   1503    9.4%      LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+   1460   97.1%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   1460  100.0%          Builtin: ArrayForEach
+   1445   99.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     43    2.9%        Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+     43  100.0%          Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     43  100.0%            Builtin: ArrayForEach
+    224    1.4%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     53   23.7%      Function: ~runInThisContext bootstrap_node.js:495:28
+     53  100.0%        Function: ~NativeModule.compile bootstrap_node.js:584:44
+     53  100.0%          Function: ~NativeModule.require bootstrap_node.js:516:34
+      7   13.2%            Function: ~Module._load module.js:440:24
+      6   11.3%            Function: ~<anonymous> stream.js:1:11
+      4    7.5%            Function: ~<anonymous> util.js:1:11
+      4    7.5%            Function: ~<anonymous> tty.js:1:11
+      3    5.7%            Function: ~startup bootstrap_node.js:12:19
+      3    5.7%            Function: ~<anonymous> readline.js:1:11
+      3    5.7%            Function: ~<anonymous> module.js:1:11
+      3    5.7%            Function: ~<anonymous> fs.js:1:11
+      3    5.7%            Function: ~<anonymous> _http_client.js:1:11
+      2    3.8%            Function: ~setupGlobalVariables bootstrap_node.js:251:32
+      2    3.8%            Function: ~<anonymous> internal/url.js:1:11
+      2    3.8%            Function: ~<anonymous> internal/loader/ModuleRequest.js:1:11
+      2    3.8%            Function: ~<anonymous> internal/encoding.js:1:11
+      2    3.8%            Function: ~<anonymous> http.js:1:11
+      2    3.8%            Function: ~<anonymous> child_process.js:1:11
+      1    1.9%            Function: ~setup_performance internal/process.js:14:27
+      1    1.9%            Function: ~setupNextTick internal/process/next_tick.js:49:23
+      1    1.9%            Function: ~createWritableStdioStream internal/process/stdio.js:142:35
+      1    1.9%            Function: ~<anonymous> internal/loader/Loader.js:1:11
+      1    1.9%            Function: ~<anonymous> _http_common.js:1:11
+     43   19.2%      Function: ~readPackage module.js:105:21
+     43  100.0%        Function: ~tryPackage module.js:127:20
+     43  100.0%          Function: ~Module._findPath module.js:174:28
+     43  100.0%            Function: ~Module._resolveFilename module.js:506:35
+     42   18.8%      Function: ~createScript vm.js:79:22
+     42  100.0%        Function: ~runInThisContext vm.js:138:26
+     42  100.0%          Function: ~Module._compile module.js:592:37
+     42  100.0%            Function: ~Module._extensions..js module.js:644:37
+     36   16.1%      Function: ~stat module.js:47:14
+     23   63.9%        Function: ~tryFile module.js:147:17
+     20   87.0%          Function: ~tryExtensions module.js:162:23
+     20  100.0%            Function: ~Module._findPath module.js:174:28
+      3   13.0%          Function: ~tryPackage module.js:127:20
+      3  100.0%            Function: ~Module._findPath module.js:174:28
+     13   36.1%        Function: ~Module._findPath module.js:174:28
+     13  100.0%          Function: ~Module._resolveFilename module.js:506:35
+     13  100.0%            Function: ~Module._load module.js:440:24
+     18    8.0%      Function: ~fs.openSync fs.js:642:23
+     18  100.0%        Function: ~fs.readFileSync fs.js:548:27
+     17   94.4%          Function: ~Module._extensions..js module.js:644:37
+     17  100.0%            Function: ~Module.load module.js:545:33
+      1    5.6%          Function: ~Module._extensions..json module.js:651:39
+      1  100.0%            Function: ~Module.load module.js:545:33
+     14    6.3%      Function: ~realpathSync fs.js:1571:40
+     14  100.0%        Function: ~toRealPath module.js:155:20
+     14  100.0%          Function: ~tryFile module.js:147:17
+     14  100.0%            Function: ~tryExtensions module.js:162:23
+      3    1.3%      Function: ~stringSlice buffer.js:553:21
+      3  100.0%        Function: ~Buffer.toString buffer.js:607:37
+      3  100.0%          Function: ~fs.readFileSync fs.js:548:27
+      2   66.7%            Function: ~Module._extensions..js module.js:644:37
+      1   33.3%            Function: ~Server.serveClient /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/node_modules/socket.io/lib/index.js:100:40
+      3    1.3%      Function: ~fs.readSync fs.js:670:23
+      3  100.0%        Function: ~tryReadSync fs.js:536:21
+      3  100.0%          Function: ~fs.readFileSync fs.js:548:27
+      3  100.0%            Function: ~Module._extensions..js module.js:644:37
+      3    1.3%      Function: ~<anonymous> crypto.js:1:11
+      3  100.0%        Function: ~NativeModule.compile bootstrap_node.js:584:44
+      3  100.0%          Function: ~NativeModule.require bootstrap_node.js:516:34
+      3  100.0%            Function: ~Module._load module.js:440:24
+
+  13766    4.3%  LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  13766  100.0%    Builtin: ArrayForEach
+  13765  100.0%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+  13765  100.0%        Builtin: ArrayForEach
+  13764  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+  13764  100.0%            Builtin: ArrayForEach
+
+   9330    2.9%  LazyCompile: *makeMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:64:18
+   8423   90.3%    LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   8423  100.0%      Builtin: ArrayForEach
+   8422  100.0%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   8422  100.0%          Builtin: ArrayForEach
+   8422  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+    850    9.1%    LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+    826   97.2%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+    826  100.0%        Builtin: ArrayForEach
+    816   98.8%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+    816  100.0%            Builtin: ArrayForEach
+     24    2.8%      Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+     24  100.0%        Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     24  100.0%          Builtin: ArrayForEach
+     21   87.5%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+      2    8.3%            LazyCompile: *minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+      1    4.2%            Function: ~minSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:538:19
+
+   6309    2.0%  v8::internal::PagedSpace::Available()
+
+   4821    1.5%  v8::internal::Heap::Scavenge()
+
+   3292    1.0%  v8::internal::Heap::AllocateRaw(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+   3228   98.1%    v8::internal::Builtin_ArraySlice(int, v8::internal::Object**, v8::internal::Isolate*)
+   2954   91.5%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+   2954  100.0%        Builtin: ArrayForEach
+   2954  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+   2954  100.0%            Builtin: ArrayForEach
+    261    8.1%      LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+    253   96.9%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+    253  100.0%          Builtin: ArrayForEach
+    251   99.2%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      8    3.1%        Function: ~maxSearch /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:516:19
+      8  100.0%          Function: ~<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      8  100.0%            Builtin: ArrayForEach
+     63    1.9%    v8::internal::Runtime_AllocateInNewSpace(int, v8::internal::Object**, v8::internal::Isolate*)
+     24   38.1%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+     24  100.0%        Builtin: ArrayForEach
+     24  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     24  100.0%            Builtin: ArrayForEach
+     19   30.2%      LazyCompile: *isLegalMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:119:21
+     14   73.7%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+     14  100.0%          Builtin: ArrayForEach
+     14  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      5   26.3%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      5  100.0%          Builtin: ArrayForEach
+      5  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+     18   28.6%      LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+     18  100.0%        Builtin: ArrayForEach
+     18  100.0%          LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+     18  100.0%            Builtin: ArrayForEach
+      1    1.6%      LazyCompile: *successors /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:471:20
+      1  100.0%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+      1  100.0%          Builtin: ArrayForEach
+      1  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      1    1.6%      LazyCompile: *makeMove /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:64:18
+      1  100.0%        LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:545:36
+      1  100.0%          Builtin: ArrayForEach
+      1  100.0%            LazyCompile: *<anonymous> /mnt/c/Users/mhump/OneDrive/School/2017-18/Fall/webdev/project/server.js:523:36
+
