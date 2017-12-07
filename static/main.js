@@ -72,7 +72,11 @@ $(".difficulty-button").bind("click", function() {
 
 $(".play-again").bind("click", function() {
 	console.log("Restarting game");
-	socket.emit("restart");
+	if (state.multiplayer) {
+		socket.emit("restart");
+	} else {
+		location.reload();
+	}
 
 	//$("#main > div").addClass("hidden");
 	//$("#landing").removeClass("hidden");
@@ -276,9 +280,10 @@ $("#game-canvas").on("click", function(event) {
 		socket.emit("move", {x: squareX, y: squareY});
 	} else {
 		// Single player.
-		cursorActive = false;
-
-		playerMove({x: squareX, y: squareY});
+		if (cursorActive && state.board[squareX][squareY] === ' ') {
+			cursorActive = false;
+			playerMove({x: squareX, y: squareY});
+		}
 	}
 });
 
