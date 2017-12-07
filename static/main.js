@@ -122,11 +122,13 @@ function createSocket() {
 			// Our turn
 			$("#turn").removeClass("hidden");
 			$("#waitingForOpponent").addClass("hidden");
+			document.title = "*Your turn! - Othello Online"
 			cursorActive = true;
 		} else {
 			// Their turn
 			$("#turn").addClass("hidden");
 			$("#waitingForOpponent").removeClass("hidden");
+			document.title = "Othello Online";
 			cursorActive = false;
 		}
 	
@@ -161,6 +163,7 @@ function createSocket() {
 
 		$("#waitingForOpponent").addClass("hidden");
 		$("#turn").addClass("hidden");
+		document.title = "Game over - Othello Online"
 	
 		// Calculate score
 		var blackScore = 0;
@@ -307,15 +310,23 @@ function playerMove(move) {
 			$("#errorMsg").addClass("hidden");
 			$("#turn").addClass("hidden");
 			$("#waitingForOpponent").removeClass("hidden");
+			document.title = "Othello Online";
+
+			console.log("State after player moved:");
+			console.log(state);
 
 			var aiState = JSON.parse(JSON.stringify(state)); // Copy state
 			aiState.color = state.color === "b" ? "w" : "b";
+			aiState.turn = state.turn === "b" ? "w" : "b";
+
+			console.log("State before AI played:");
+			console.log(aiState);
 
 			checkLegalMovesRemain(aiState, function(movesRemain) {
 				if (movesRemain) {
 					// The AI can make a move. Continue as normal.
 					// Wait a small amount of time for the user to visually process their move.
-					setTimeout(aiMove, 1000); // Make an AJAX request for the computer's move
+					setTimeout(aiMove, 1000, aiState); // Make an AJAX request for the computer's move
 				} else {
 					checkLegalMovesRemain(state, function(movesRemain) {
 						if (movesRemain) {
@@ -323,6 +334,7 @@ function playerMove(move) {
 							console.log("AI has no legal moves; skipping turn.");
 							$("#turn").removeClass("hidden");
 							$("#waitingForOpponent").addClass("hidden");
+							document.title = "*Your turn! - Othello Online"
 							cursorActive = true;
 						} else {
 							// Neither play can make a move. Game over.
@@ -365,28 +377,32 @@ function checkLegalMovesRemain(state, next) {
 	});
 }
 
-function aiMove() {
+function aiMove(aiState) {
 	$.ajax("/ai/" + ai, {
 		contentType: "application/json",
-		data: JSON.stringify(state),
+		data: JSON.stringify(aiState),
 		method: "POST",
 		success: function(data, textStatus) {
 			state = data;
 			$("#errorMsg").addClass("hidden");
 			updateScore(state.board);
+
+			console.log("State after AI played");
+			console.log(state);
 			
 			checkLegalMovesRemain(state, function(movesRemain) {
 				if (movesRemain) {
 					// Player can make another move. Enable UI
 					$("#turn").removeClass("hidden");
 					$("#waitingForOpponent").addClass("hidden");
+					document.title = "*Your turn! - Othello Online"
 					cursorActive = true;
 				} else {
 					// The player cannot make a move. Check if the AI can make another move.
-					var aiState = JSON.parse(JSON.stringify(state));
-					aiState.color = state.color === "w" ? "b" : "w";
+					var aiState_ = JSON.parse(JSON.stringify(state));
+					aiState_.color = state.color === "w" ? "b" : "w";
 
-					checkLegalMovesRemain(aiState, function(movesRemain) {
+					checkLegalMovesRemain(aiState_, function(movesRemain) {
 						if (movesRemain) {
 							// The AI can make a move, but the player can't. Skip the players's turn.
 							console.log("Player has no legal moves; skipping turn.");
@@ -397,6 +413,7 @@ function aiMove() {
 							var blackScore = parseInt($("#black-score").text());
 							var whiteScore = parseInt($("#white-score").text());
 
+							document.title = "Game over - Othello Online";
 							if (blackScore > whiteScore) {
 								// Player wins!
 								$("#waitingForOpponent").addClass("hidden");

@@ -281,7 +281,8 @@ server.post('/ai/random', function(req, res) {
 	var state = req.body;
 
 	// Derive the state of the game from the AI's point of view
-	var aiState = JSON.parse(JSON.stringify(state)); // Copy state
+	// var aiState = JSON.parse(JSON.stringify(state)); // Copy state
+	var aiState = copyState(state);
 	aiState.color = state.color === 'w' ? 'b' : 'w';
 
 	var possibleMoves = [];
@@ -290,7 +291,8 @@ server.post('/ai/random', function(req, res) {
 		for (var j = 0; j < 8; j++) {
 			if (aiState.board[i][j] == ' ') {
 				if (isLegalMove(aiState, {x: i, y: j}, true)) {
-					var temp = JSON.parse(JSON.stringify(aiState));
+					// var temp = JSON.parse(JSON.stringify(aiState));
+					var temp = copyState(aiState);
 					makeMove(temp, {x: i, y: j});
 					//console.log(temp);
 					possibleMoves.push(temp);
@@ -319,7 +321,8 @@ server.post('/ai/greedy', function(req, res) {
 	var state = req.body;
 
 	// Derive the state of the game from the AI's point of view
-	var aiState = JSON.parse(JSON.stringify(state)); // Copy state
+	// var aiState = JSON.parse(JSON.stringify(state)); // Copy state
+	var aiState = copyState(state);
 	aiState.color = state.color === 'w' ? 'b' : 'w';
 
 	var possibleMoves = [];
@@ -328,7 +331,8 @@ server.post('/ai/greedy', function(req, res) {
 		for (var j = 0; j < 8; j++) {
 			if (aiState.board[i][j] === ' ') {
 				if (isLegalMove(aiState, {x: i, y: j}, true)) {
-					var temp = JSON.parse(JSON.stringify(aiState));
+					// var temp = JSON.parse(JSON.stringify(aiState));
+					var temp = copyState(state);
 					makeMove(temp, {x: i, y: j});
 					var score = getScoreOf(aiState.color, aiState);
 					possibleMoves.push({state: temp, score: score});
@@ -359,39 +363,50 @@ server.post('/ai/greedy', function(req, res) {
 	}
 });
 
+function displayBoard(board) {
+	var string = "Board:\n"
+	for (var x = 0; x < board.length; x++) {
+		for (var y=0; y < board[x].length; y++) {
+			string += "'" + board[y][x] + "', ";
+		}
+		string += '\n';
+	}
+
+	console.log(string);
+}
+
 const DEPTH_LIMIT = 5;
 server.post('/ai/minimax', function(req, res) {
 	var state = req.body;
 
-	// Derive the state of the game from the AI's point of view
-	var aiState = JSON.parse(JSON.stringify(state)); // Copy state
-	aiState.color = state.color === 'w' ? 'b' : 'w';
+	// console.log("Received state:");
+	// console.log("color: '" + state.color + "', turn = '" + state.turn + "'");
+	// displayBoard(state.board);
 
 	// possibleMoves[i] = {state: ..., score: ...}
 	var possibleMoves = [];
 
 	console.time("minimax");
-	successors(aiState).forEach(function(successor) {
+	successors(state).forEach(function(successor) {
 		var result = minSearch(successor, -Infinity, Infinity);
 		possibleMoves.push({state: successor, score: result});
 	});
 	console.timeEnd("minimax");
 
-	// console.log("Number of legal moves: " + possibleMoves.length);
-	// console.log("possibleMoves[0] = " + JSON.stringify(possibleMoves[0]));
+	// console.log(possibleMoves);
 	if (possibleMoves.length > 0) {
 		var nextState = possibleMoves.sort((a, b) => {
 			var diff = a.score - b.score;
 			return diff/(Math.abs(diff)||1);
 		}).pop().state;
-		//console.log(possibleMoves);
 
-		// Copy the modified board to the user's state
-		state.board = nextState.board;
+		// console.log("Next state:");
+		// console.log("color: '" + nextState.color + "', turn = '" + nextState.turn + "'");
+		// displayBoard(nextState.board);
 	
 		res.status(200);
 		res.type("application/json");
-		res.end(JSON.stringify(state));
+		res.end(JSON.stringify(nextState));
 	} else {
 		res.status(400);
 		res.type("application/json");
@@ -439,6 +454,20 @@ server.post('/player/legalMovesRemain', function(req, res) {
 /*                Minimax Algorithm                 */
 /****************************************************/
 
+function copyState(state) {
+	var copy = {};
+	copy.color = state.color;
+	copy.turn = state.turn;
+	copy.multiplayer = state.multiplayer;
+	
+	// Deep copy board
+	copy.board = [];
+	for (var i = 0; i < state.board.length; i++)
+		copy.board[i] = state.board[i].slice();
+
+	return copy;
+}
+
 function successors(state) {
 	var successors_ = [];
 
@@ -446,8 +475,18 @@ function successors(state) {
 		for (var j = 0; j < 8; j++) {
 			if (state.board[i][j] == ' ') {
 				if (isLegalMove(state, {x: i, y: j}, true)) {
-					var copy = JSON.parse(JSON.stringify(state));
-					successors_.push(makeMove(copy, {x: i, y: j}));
+					//var copy = JSON.parse(JSON.stringify(state));
+					var copy = copyState(state);
+					copy = makeMove(copy, {x: i, y: j});
+					copy.turn = state.turn === 'w' ? 'b' : 'w';	// Change players
+
+					// If other player can't move, skip their turn
+					if (!legalMovesRemain(copy)) {
+						copy.turn = state.turn;
+					}
+
+					// Add to list of successors
+					successors_.push(copy);
 				}
 			}
 		}
@@ -475,12 +514,8 @@ function isTerminal(state) {
 }
 
 function maxSearch(state, α, ß, depth=0) {
-	if (isTerminal(state)) {
-		return getScoreOf(state.color, state);
-	}
-	
-	if (depth > DEPTH_LIMIT) {
-		return getScoreOf(state.color, state);
+	if (isTerminal(state) || depth > DEPTH_LIMIT) {
+		return getScoreOf('w', state) - getScoreOf('b', state);
 	}
 
 	var v = -Infinity;
@@ -501,15 +536,11 @@ function maxSearch(state, α, ß, depth=0) {
 }
 
 function minSearch(state, α, ß, depth=0) {
-	if (isTerminal(state)) {
-		return getScoreOf(state.color, state);
+	if (isTerminal(state) || depth > DEPTH_LIMIT) {
+		return getScoreOf('w', state) - getScoreOf('b', state);
 	}
 
-	if (depth > DEPTH_LIMIT) {
-		return getScoreOf(state.color, state);
-	}
-
-	var v = -Infinity;
+	var v = Infinity;
 
 	successors(state).forEach(function(successor) {
 		var result = maxSearch(successor, α, ß, depth+1);
