@@ -32,7 +32,6 @@ $(".difficulty-button").bind("click", function() {
 
 		case "difficult-button":
 			ai = "minimax";
-			alert("Not yet implemented");
 			break;
 	}
 
@@ -64,6 +63,7 @@ $(".difficulty-button").bind("click", function() {
 	$("#game-div").removeClass("hidden");
 	$("#white-score").text("2");
 	$("#black-score").text("2");
+	$("#waitingForOpponent").addClass("hidden");
 
 
 	// Start game
@@ -191,6 +191,13 @@ var context = $("#game-canvas").get(0).getContext("2d");
 var imageSrcs = ["reversi_board.png", "white.png", "black.png", "cursor.png"];
 var images = [];
 
+// Start pre-loading images immediately
+for (var i=0; i<imageSrcs.length; i++) {
+	var image = new Image();
+	image.src = imageSrcs[i];
+	images.push(image);
+}
+
 function displayBoard() {
 	context.drawImage(images[0], 0, 0);
 	for (var x = 0; x < 8; x++) {
@@ -207,12 +214,14 @@ function displayBoard() {
 		}
 	}
 
+	// Only display cursor when it's the player's turn and the game is active
 	if (highlighted && state.turn === state.color && cursorActive) {
 		context.drawImage(images[3], ((highlighted.x*64)+(4*(highlighted.x+1)))-1, 
 		                             ((highlighted.y*64)+(4*(highlighted.y+1)))-1);
 	}
 }
 
+// Calculate and display score
 function updateScore(board) {
 	var blackScore = 0;
 	var whiteScore = 0;
@@ -230,19 +239,13 @@ function updateScore(board) {
 	$("#black-score").text(blackScore);
 }
 
-for (var i=0; i<imageSrcs.length; i++) {
-	var image = new Image();
-	image.src = imageSrcs[i];
-	images.push(image);
-}
-
+// Display game while there's a state to display
 function gameLoop() {
-	
-	//Loop this function at 60 frames per second
-	requestAnimationFrame(gameLoop);
-
-	//Render the stage to see the animation
 	if (state) {
+		//Loop this function at 60 frames per second
+		requestAnimationFrame(gameLoop);
+	
+		//Render the stage to see the animation
 		displayBoard(state.board);
 	}
 }
@@ -414,8 +417,6 @@ function aiMove() {
 			//alert("AJAX error: " + textStatus + "\n" + errorThrown);
 			$("#errorMsg").text("Error: " + textStatus + "\n" + errorThrown)
 			$("#errorMsg").removeClass("hidden");
-		}, 
-		complete: function() {
 		}
 	});
 }

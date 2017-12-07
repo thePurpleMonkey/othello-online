@@ -330,19 +330,52 @@ server.post('/ai/greedy', function(req, res) {
 				if (isLegalMove(aiState, {x: i, y: j}, true)) {
 					var temp = JSON.parse(JSON.stringify(aiState));
 					makeMove(temp, {x: i, y: j});
-					var score = 0;
-					for (var k = 0; k < 8; k++) {
-						for (var l = 0; l < 8; l++) {
-							if (temp.board[k][l] === aiState.color) {
-								score++;
-							}
-						}
-					}
+					var score = getScoreOf(aiState.color, aiState);
 					possibleMoves.push({state: temp, score: score});
 				}
 			}
 		}
 	}
+
+	// console.log("Number of legal moves: " + possibleMoves.length);
+	// console.log("possibleMoves[0] = " + JSON.stringify(possibleMoves[0]));
+	if (possibleMoves.length > 0) {
+		var nextState = possibleMoves.sort((a, b) => {
+			var diff = a.score - b.score;
+			return diff/(Math.abs(diff)||1);
+		}).pop().state;
+		//console.log(possibleMoves);
+
+		// Copy the modified board to the user's state
+		state.board = nextState.board;
+	
+		res.status(200);
+		res.type("application/json");
+		res.end(JSON.stringify(state));
+	} else {
+		res.status(400);
+		res.type("application/json");
+		res.end(JSON.stringify({error: "No legal moves remaining"}));
+	}
+});
+
+const DEPTH_LIMIT = 5;
+server.post('/ai/minimax', function(req, res) {
+	var state = req.body;
+
+	// Derive the state of the game from the AI's point of view
+	var aiState = JSON.parse(JSON.stringify(state)); // Copy state
+	aiState.color = state.color === 'w' ? 'b' : 'w';
+
+	// possibleMoves[i] = {state: ..., score: ...}
+	var possibleMoves = [];
+
+	console.time("minimax");
+	successors(aiState).forEach(function(successor) {
+		var result = minSearch(successor, -Infinity, Infinity);
+		possibleMoves.push({state: successor, score: result});
+	});
+	console.timeEnd("minimax");
 
 	// console.log("Number of legal moves: " + possibleMoves.length);
 	// console.log("possibleMoves[0] = " + JSON.stringify(possibleMoves[0]));
@@ -401,5 +434,109 @@ server.post('/player/legalMovesRemain', function(req, res) {
 	res.end(JSON.stringify({result: legalMovesRemain(req.body)}));
 
 });
+
+/****************************************************/
+/*                Minimax Algorithm                 */
+/****************************************************/
+
+function successors(state) {
+	var successors_ = [];
+
+	for (var i = 0; i < 8; i++) {
+		for (var j = 0; j < 8; j++) {
+			if (state.board[i][j] == ' ') {
+				if (isLegalMove(state, {x: i, y: j}, true)) {
+					var copy = JSON.parse(JSON.stringify(state));
+					successors_.push(makeMove(copy, {x: i, y: j}));
+				}
+			}
+		}
+	}
+
+	return successors_;
+}
+
+function isTerminal(state) {
+	var otherState = state
+	otherState.color = state.color === 'w' ? 'b' : 'w';
+
+	for (var i = 0; i < 8; i++) {
+		for (var j = 0; j < 8; j++) {
+			if (state.board[i][j] == ' ') {
+				if (isLegalMove(state, {x: i, y: j}, true) ||
+			        isLegalMove(otherState, {x: i, y: j}, true)) {
+					return false;
+				}
+			}
+		}
+	}
+
+	return true;
+}
+
+function maxSearch(state, α, ß, depth=0) {
+	if (isTerminal(state)) {
+		return getScoreOf(state.color, state);
+	}
+	
+	if (depth > DEPTH_LIMIT) {
+		return getScoreOf(state.color, state);
+	}
+
+	var v = -Infinity;
+
+	successors(state).forEach(function(successor) {
+		var result = minSearch(successor, α, ß, depth+1);
+
+		v = Math.max(v, result);
+
+		if (v >= ß) {
+			return v;
+		}
+
+		α = Math.max(α, v);
+	});
+
+	return v;
+}
+
+function minSearch(state, α, ß, depth=0) {
+	if (isTerminal(state)) {
+		return getScoreOf(state.color, state);
+	}
+
+	if (depth > DEPTH_LIMIT) {
+		return getScoreOf(state.color, state);
+	}
+
+	var v = -Infinity;
+
+	successors(state).forEach(function(successor) {
+		var result = maxSearch(successor, α, ß, depth+1);
+
+		v = Math.min(v, result);
+
+		if (v <= α) {
+			return v;
+		}
+
+		ß = Math.min(ß, v);
+	});
+
+	return v;
+}
+
+function getScoreOf(color, state) {
+	var score = 0;
+	for (var k = 0; k < 8; k++) {
+		for (var l = 0; l < 8; l++) {
+			if (state.board[k][l] === color) {
+				score++;
+			}
+		}
+	}
+
+	return score;
+}
 
 console.log("Server started on port " + PORT);
